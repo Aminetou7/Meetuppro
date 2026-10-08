@@ -363,6 +363,18 @@ h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.15; letter-spa
 .card h3 { font-size: 19.5px; font-weight: 600; margin-bottom: 10px; }
 .card p { color: var(--muted); font-size: 15px; }
 
+/* ---------- Previous edition ---------- */
+.edition-stats { margin-bottom: 44px; }
+.edition-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.edition-panels { margin-top: 40px; }
+.edition-panels h3 {
+  display: flex; align-items: center; gap: 18px;
+  font-size: 14px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--muted);
+}
+.edition-panels h3::after { content: ""; height: 1px; flex: 1; background: var(--line); }
+.edition-link { margin-top: 36px; text-align: center; }
+
 /* ---------- Program panels ---------- */
 .panels { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 22px; }
 .panel {
@@ -617,6 +629,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.15; letter-spa
 /* ---------- Responsive ---------- */
 @media (max-width: 1024px) {
   .cards-grid { grid-template-columns: repeat(2, 1fr); }
+  .edition-grid { grid-template-columns: repeat(2, 1fr); }
   .panels { grid-template-columns: 1fr; max-width: 640px; margin-inline: auto; }
   .stats-grid { grid-template-columns: repeat(2, 1fr); }
   .about-grid, .faq-grid { grid-template-columns: 1fr; gap: 52px; }
@@ -638,6 +651,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.15; letter-spa
 
 @media (max-width: 520px) {
   .cards-grid { grid-template-columns: 1fr; }
+  .edition-grid { grid-template-columns: 1fr; }
   .stats-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
   .stat { padding: 24px 10px; }
   .hero-cta { flex-direction: column; width: 100%; }
