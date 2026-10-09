@@ -1,0 +1,33 @@
+.grid { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 70px; align-items: start; }
+
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 13px; font-weight: 600; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--g2); margin-bottom: 18px;
+}
+.eyebrow::before { content: ""; width: 34px; height: 2px; background: var(--grad); border-radius: 2px; }
+.title { font-size: clamp(30px, 4.4vw, 46px); font-weight: 700; margin-bottom: 18px; }
+.sub { color: var(--muted); max-width: 620px; font-size: 17px; }
+.contactBtn { margin-top: 26px; }
+
+
+
+.accordion { display: flex; flex-direction: column; gap: 14px; }
+.item { border: 1px solid var(--line); border-radius: 16px; background: var(--card); overflow: hidden; transition: border-color 0.25s; }
+.item.open { border-color: rgba(26, 219, 168, 0.4); }
+.trigger {
+  width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 18px;
+  background: none; border: 0; color: var(--text); cursor: pointer;
+  font-family: var(--font-display); font-size: 16.5px; font-weight: 600; text-align: left;
+  padding: 22px 24px;
+}
+.trigger svg { width: 20px; height: 20px; color: var(--g2); flex-shrink: 0; transition: transform 0.3s; }
+.item.open .trigger svg { transform: rotate(45deg); }
+.panel { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.35s ease; }
+.panel > p { overflow: hidden; color: var(--muted); font-size: 15px; padding: 0 24px; }
+.item.open .panel { grid-template-rows: 1fr; }
+.item.open .panel > p { padding-bottom: 22px; }
+
+@media (max-width: 1024px) {
+  .grid { grid-template-columns: 1fr; gap: 52px; }
+}

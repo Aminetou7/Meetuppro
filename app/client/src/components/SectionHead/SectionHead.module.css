@@ -1,0 +1,18 @@
+.head { margin-bottom: 56px; }
+.center { text-align: center; }
+.center .sub { margin-inline: auto; }
+
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 13px; font-weight: 600; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--g2); margin-bottom: 18px;
+}
+.eyebrow::before { content: ""; width: 34px; height: 2px; background: var(--grad); border-radius: 2px; }
+
+.title {
+  font-size: clamp(30px, 4.4vw, 46px);
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+
+.sub { color: var(--muted); max-width: 620px; font-size: 17px; }

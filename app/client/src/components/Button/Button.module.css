@@ -1,0 +1,26 @@
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  font-family: var(--font-display); font-weight: 600; font-size: 15.5px;
+  padding: 15px 30px; border-radius: 999px; border: 0; cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.22s, box-shadow 0.22s, background-color 0.22s, border-color 0.22s, color 0.22s;
+  white-space: nowrap;
+}
+.btn svg { width: 18px; height: 18px; transition: transform 0.22s; }
+.btn:hover svg { transform: translateX(4px); }
+
+.primary {
+  background: var(--grad); color: var(--ink);
+  box-shadow: 0 10px 30px -10px rgba(26, 219, 168, 0.55);
+}
+.primary:hover { transform: translateY(-2px); box-shadow: 0 16px 40px -12px rgba(26, 219, 168, 0.7); }
+
+.ghost {
+  background: transparent; color: var(--text);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+}
+.ghost:hover { transform: translateY(-2px); border-color: var(--g2); color: var(--g2); }
+
+.sm { padding: 11px 22px; font-size: 14px; }
+.lg { padding: 17px 34px; font-size: 16px; }
+.block { width: 100%; }

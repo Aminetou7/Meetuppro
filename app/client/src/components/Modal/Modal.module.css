@@ -1,0 +1,29 @@
+.modal {
+  position: fixed; inset: 0; z-index: 150;
+  display: flex; align-items: center; justify-content: center; padding: 22px;
+  opacity: 0; visibility: hidden; transition: opacity 0.28s, visibility 0.28s;
+}
+.open { opacity: 1; visibility: visible; }
+.backdrop { position: absolute; inset: 0; background: rgba(4, 5, 12, 0.78); backdrop-filter: blur(6px); }
+.card {
+  position: relative; width: min(480px, 100%); max-height: 90svh; overflow-y: auto;
+  min-width: 0; max-width: 100%;
+  background: #0d1020; border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 26px; padding: 42px 38px;
+  transform: translateY(22px) scale(0.97); transition: transform 0.32s cubic-bezier(0.2, 0.9, 0.3, 1.2);
+  box-shadow: var(--shadow);
+}
+.open .card { transform: none; }
+.close {
+  position: absolute; top: 18px; right: 18px; width: 38px; height: 38px;
+  border-radius: 50%; border: 1px solid rgba(255, 255, 255, 0.16);
+  background: transparent; color: var(--muted); cursor: pointer;
+  display: inline-flex; align-items: center; justify-content: center;
+  transition: color 0.2s, border-color 0.2s, transform 0.2s;
+}
+.close svg { width: 17px; height: 17px; }
+.close:hover { color: var(--text); border-color: var(--g2); transform: rotate(90deg); }
+
+@media (max-width: 520px) {
+  .card { padding: 34px 24px; }
+}

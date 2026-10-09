@@ -1,0 +1,46 @@
+.aboutGrid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 70px; align-items: center; }
+.copy p { color: var(--muted); margin-bottom: 18px; }
+
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 13px; font-weight: 600; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--g2); margin-bottom: 18px;
+}
+.eyebrow::before { content: ""; width: 34px; height: 2px; background: var(--grad); border-radius: 2px; }
+.title { font-size: clamp(30px, 4.4vw, 46px); font-weight: 700; margin-bottom: 18px; }
+
+
+.checkList { list-style: none; margin-top: 26px; display: flex; flex-direction: column; gap: 14px; }
+.checkList li { display: flex; align-items: center; gap: 12px; font-weight: 500; }
+.checkList svg { width: 22px; height: 22px; color: var(--g1); flex-shrink: 0; }
+
+.chipsWrap { margin-top: 24px; }
+
+.media { position: relative; }
+.frame { border-radius: 26px; padding: 2px; background: var(--grad); box-shadow: var(--shadow); }
+.placeholder {
+  border-radius: 24px; background: var(--ink-2);
+  aspect-ratio: 4 / 3.1; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 16px;
+  color: var(--muted); font-size: 14.5px; letter-spacing: 0.08em; text-transform: uppercase;
+  background-image:
+    radial-gradient(circle at 78% 18%, rgba(15, 205, 243, 0.14), transparent 45%),
+    radial-gradient(circle at 18% 82%, rgba(29, 225, 35, 0.12), transparent 45%);
+}
+.placeholder svg { width: 52px; height: 52px; opacity: 0.7; }
+
+.floatCard {
+  position: absolute; right: -18px; bottom: -26px;
+  background: var(--grad); color: var(--ink);
+  padding: 18px 26px; border-radius: 18px;
+  display: flex; flex-direction: column; box-shadow: var(--shadow);
+}
+.floatCard strong { font-family: var(--font-display); font-size: 22px; font-weight: 700; line-height: 1.1; }
+.floatCard span { font-size: 13px; font-weight: 600; opacity: 0.82; }
+
+@media (max-width: 1024px) {
+  .aboutGrid { grid-template-columns: 1fr; gap: 52px; }
+}
+@media (max-width: 720px) {
+  .floatCard { right: 8px; bottom: -20px; }
+}

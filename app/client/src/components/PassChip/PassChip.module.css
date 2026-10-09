@@ -1,0 +1,5 @@
+.chip {
+  display: inline-flex; padding: 7px 16px; border-radius: 999px;
+  background: var(--grad); color: var(--ink);
+  font-family: var(--font-display); font-weight: 600; font-size: 13px; letter-spacing: 0.06em;
+}

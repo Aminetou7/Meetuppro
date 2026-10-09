@@ -1,0 +1,22 @@
+.marquee {
+  border-block: 1px solid var(--line);
+  background: var(--ink-2);
+  overflow: hidden; padding: 20px 0;
+}
+.track {
+  display: flex; align-items: center; gap: 38px; width: max-content;
+  animation: marquee 36s linear infinite;
+  font-family: var(--font-display); font-weight: 600; font-size: 15px;
+  letter-spacing: 0.24em; text-transform: uppercase; color: rgba(238, 241, 248, 0.75);
+}
+.track i {
+  font-style: normal;
+  background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent;
+  font-size: 18px;
+}
+.marquee:hover .track { animation-play-state: paused; }
+@keyframes marquee { to { transform: translateX(-50%); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .track { animation: none; }
+}

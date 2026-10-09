@@ -1,0 +1,76 @@
+.siteHeader {
+  position: fixed; inset: 0 0 auto 0; z-index: 100;
+  height: var(--header-h);
+  display: flex; align-items: center;
+  transition: background-color 0.3s, backdrop-filter 0.3s, border-color 0.3s, height 0.3s;
+  border-bottom: 1px solid transparent;
+}
+.scrolled {
+  background: rgba(6, 7, 18, 0.82);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom-color: var(--line);
+  height: 70px;
+}
+
+.headerInner { display: flex; align-items: center; justify-content: space-between; gap: 24px; width: min(1320px, 94%); }
+
+.brand { flex-shrink: 1; min-width: 0; }
+.brandLogo { width: 216px; max-width: 100%; height: auto; transition: width 0.3s; }
+.scrolled .brandLogo { width: 176px; }
+
+.mainNav ul { display: flex; gap: 4px; list-style: none; }
+.mainNav a {
+  color: var(--text); text-decoration: none; font-size: 15px; font-weight: 500;
+  padding: 9px 12px; border-radius: 999px; position: relative; white-space: nowrap;
+  transition: color 0.2s, background-color 0.2s;
+}
+.mainNav a:hover { color: var(--g2); }
+.mainNav a.active { color: var(--g2); background: rgba(26, 219, 168, 0.1); }
+
+/* Editions dropdown */
+.navDrop { position: relative; }
+.navDropTrigger {
+  display: inline-flex; align-items: center; gap: 6px;
+  color: var(--text); background: none; border: none; font: inherit;
+  font-size: 15px; font-weight: 500; padding: 9px 12px; border-radius: 999px;
+  cursor: pointer; white-space: nowrap; transition: color 0.2s, background-color 0.2s;
+}
+.navDropTrigger:hover { color: var(--g2); }
+.navDropTrigger svg { width: 14px; height: 14px; transition: transform 0.2s; }
+.navDrop.open .navDropTrigger { color: var(--g2); background: rgba(26, 219, 168, 0.1); }
+.navDrop.open .navDropTrigger svg { transform: rotate(180deg); }
+.navDropMenu {
+  position: absolute; top: calc(100% + 10px); left: 0; min-width: 190px;
+  background: rgba(10, 12, 24, 0.98); border: 1px solid var(--line); border-radius: 14px;
+  padding: 8px; list-style: none; display: flex; flex-direction: column; gap: 2px;
+  opacity: 0; visibility: hidden; transform: translateY(8px); pointer-events: none;
+  transition: opacity 0.2s, transform 0.2s, visibility 0.2s; box-shadow: var(--shadow); z-index: 60;
+}
+.navDrop.open .navDropMenu { opacity: 1; visibility: visible; transform: none; pointer-events: auto; }
+.navDropMenu a {
+  display: block; padding: 9px 12px; border-radius: 9px; color: var(--text);
+  text-decoration: none; font-size: 14.5px; font-weight: 500; white-space: nowrap;
+  background: none; transition: background-color 0.2s, color 0.2s;
+}
+.navDropMenu a:hover { background: rgba(26, 219, 168, 0.1); color: var(--g2); }
+
+.headerActions { display: flex; align-items: center; gap: 14px; }
+
+.burger {
+  display: none; flex-direction: column; gap: 5px;
+  background: none; border: 0; cursor: pointer; padding: 8px;
+}
+.burger span { width: 24px; height: 2px; background: var(--text); border-radius: 2px; transition: transform 0.3s, opacity 0.3s; }
+.burgerOpen span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.burgerOpen span:nth-child(2) { opacity: 0; }
+.burgerOpen span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+@media (max-width: 1024px) {
+  .mainNav { display: none; }
+  .burger { display: flex; }
+}
+
+@media (max-width: 720px) {
+  .headerActions .headerBtn { display: none; }
+}
