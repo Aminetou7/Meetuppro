@@ -36,7 +36,7 @@
         </ul>
       </nav>
       <div class="header-actions">
-        <button class="btn btn-primary btn-sm" data-open-modal data-track="professional">Register</button>
+        <button class="btn btn-primary btn-sm" data-open-modal>Register</button>
         <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
           <span></span><span></span><span></span>
         </button>
@@ -56,8 +56,8 @@
       <a href="#faq">FAQ</a>
     </nav>
     <div class="mobile-menu-cta">
-      <button class="btn btn-primary" data-open-modal data-track="professional">Professional pass</button>
-      <button class="btn btn-ghost" data-open-modal data-track="youth">Youth pass</button>
+      <button class="btn btn-primary" data-open-modal>Professional pass</button>
+      <a class="btn btn-ghost" href="https://tally.so/r/2EMNr9" target="_blank" rel="noopener">Youth pass</a>
     </div>
   </div>
 
@@ -79,14 +79,14 @@
           to create real opportunities.
         </p>
         <div class="hero-cta reveal">
-          <button class="btn btn-primary btn-lg" data-open-modal data-track="professional">
+          <button class="btn btn-primary btn-lg" data-open-modal>
             Register as Professional
             <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
-          <button class="btn btn-ghost btn-lg" data-open-modal data-track="youth">
+          <a class="btn btn-ghost btn-lg" href="https://tally.so/r/2EMNr9" target="_blank" rel="noopener">
             Register as Youth
             <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
+          </a>
         </div>
         <p class="hero-note reveal">Both passes are 100% free &mdash; seats are limited.</p>
       </div>
@@ -400,7 +400,7 @@
               <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m5 13 4 4L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>B2B meeting space &amp; partnering</li>
               <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m5 13 4 4L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>E-certificate of participation</li>
             </ul>
-            <button class="btn btn-primary btn-block" data-open-modal data-track="professional">Register as Professional</button>
+            <button class="btn btn-primary btn-block" data-open-modal>Register as Professional</button>
           </article>
           <article class="pass pass-youth reveal">
             <div class="pass-head">
@@ -415,7 +415,7 @@
               <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m5 13 4 4L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Mentoring corners &amp; career space</li>
               <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m5 13 4 4L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Student community &amp; opportunities</li>
             </ul>
-            <button class="btn btn-ghost btn-block" data-open-modal data-track="youth">Register as Youth</button>
+            <a class="btn btn-ghost btn-block" href="https://tally.so/r/2EMNr9" target="_blank" rel="noopener">Register as Youth</a>
           </article>
         </div>
       </div>
@@ -428,7 +428,7 @@
           <span class="eyebrow">Partners</span>
           <h2 class="section-title">They make MEET PRO possible</h2>
           <p class="section-sub">
-            <a href="mailto:mgazzeh03@gmail.com" class="inline-link">Become a partner &rarr;</a>
+            <button type="button" class="inline-link inline-btn" data-open-partner>Become a partner &rarr;</button>
           </p>
         </div>
         <div class="partners-group reveal">
@@ -521,8 +521,8 @@
         <h2>Ready to join the movement?</h2>
         <p>Seats are free but limited. Join us on 31 October 2026 at Mouradi Club Kantaoui, Sousse.</p>
         <div class="hero-cta">
-          <button class="btn btn-primary btn-lg" data-open-modal data-track="professional">Register as Professional</button>
-          <button class="btn btn-ghost btn-lg" data-open-modal data-track="youth">Register as Youth</button>
+          <button class="btn btn-primary btn-lg" data-open-modal>Register as Professional</button>
+          <a class="btn btn-ghost btn-lg" href="https://tally.so/r/2EMNr9" target="_blank" rel="noopener">Register as Youth</a>
         </div>
       </div>
     </section>
@@ -583,27 +583,60 @@
         <svg viewBox="0 0 24 24" fill="none"><path d="m6 6 12 12M18 6 6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
       </button>
 
-      <!-- TODO: replace this placeholder form with the final registration form / endpoint -->
+      <!-- Professional registration form; wire your real endpoint in assets/js/main.js -->
       <form class="modal-form" id="register-form" novalidate>
-        <span class="pass-chip" id="modal-track-chip">Professional</span>
-        <h3 id="modal-title">Register for MEET PRO 2026</h3>
-        <p class="modal-sub">Free pass &mdash; takes less than a minute.</p>
-        <input type="hidden" name="track" id="modal-track" value="professional" />
+        <span class="pass-chip">Professional</span>
+        <h3 id="modal-title">Professional registration</h3>
+        <p class="modal-sub">Free pass &mdash; takes less than two minutes.</p>
         <div class="field">
           <label for="f-name">Full name</label>
           <input id="f-name" name="name" type="text" placeholder="Amina Touati" required autocomplete="name" />
         </div>
-        <div class="field">
-          <label for="f-email">Email address</label>
-          <input id="f-email" name="email" type="email" placeholder="you@email.com" required autocomplete="email" />
+        <div class="field-row">
+          <div class="field">
+            <label for="f-email">Email address</label>
+            <input id="f-email" name="email" type="email" placeholder="you@company.com" required autocomplete="email" />
+          </div>
+          <div class="field">
+            <label for="f-phone">Phone number</label>
+            <input id="f-phone" name="phone" type="tel" placeholder="+216 00 000 000" required autocomplete="tel" />
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="f-org">Company / Organization</label>
+            <input id="f-org" name="organization" type="text" placeholder="Company, startup or institution" required autocomplete="organization" />
+          </div>
+          <div class="field">
+            <label for="f-job">Job title</label>
+            <input id="f-job" name="job" type="text" placeholder="e.g. Marketing Manager" required autocomplete="organization-title" />
+          </div>
         </div>
         <div class="field">
-          <label for="f-phone">Phone number</label>
-          <input id="f-phone" name="phone" type="tel" placeholder="+000 00 00 00 00" required autocomplete="tel" />
+          <label for="f-sector">Sector</label>
+          <select id="f-sector" name="sector" required>
+            <option value="" selected disabled>Select your sector</option>
+            <option>Banking &amp; Finance</option>
+            <option>IT &amp; Telecom</option>
+            <option>Industry &amp; Manufacturing</option>
+            <option>Services &amp; Consulting</option>
+            <option>Education &amp; Training</option>
+            <option>Health &amp; Pharma</option>
+            <option>Agriculture &amp; Agri-food</option>
+            <option>Public sector &amp; Institutions</option>
+            <option>Other</option>
+          </select>
         </div>
         <div class="field">
-          <label for="f-org" id="f-org-label">Organization / School</label>
-          <input id="f-org" name="organization" type="text" placeholder="Your company or school" required autocomplete="organization" />
+          <label for="f-goal">Main goal at MEET PRO 2026</label>
+          <select id="f-goal" name="goal" required>
+            <option value="" selected disabled>Select your main goal</option>
+            <option>Find partners &amp; collaborations</option>
+            <option>Recruit talent</option>
+            <option>Showcase products or services</option>
+            <option>Grow my professional network</option>
+            <option>Learn &amp; get inspired</option>
+          </select>
         </div>
         <button type="submit" class="btn btn-primary btn-block">Confirm my free registration</button>
         <p class="modal-legal">By registering you agree to be contacted about MEET PRO 2026.</p>
@@ -614,6 +647,48 @@
         <h3>Registration received!</h3>
         <p>Thank you for joining MEET PRO 2026. Our team will send your confirmation and badge details by e-mail very soon.</p>
         <button class="btn btn-ghost" data-close-modal>Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ PARTNERSHIP CONTACTS MODAL ============ -->
+  <div class="modal" id="partner-modal" role="dialog" aria-modal="true" aria-labelledby="partner-modal-title" aria-hidden="true">
+    <div class="modal-backdrop" data-close-partner></div>
+    <div class="modal-card">
+      <button class="modal-close" data-close-partner aria-label="Close partnership contacts">
+        <svg viewBox="0 0 24 24" fill="none"><path d="m6 6 12 12M18 6 6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+      <span class="pass-chip">Partnership</span>
+      <h3 id="partner-modal-title">Become a partner</h3>
+      <p class="modal-sub">Call or write to the organizing team &mdash; every partnership request gets an answer within 24 hours.</p>
+      <div class="contact-cards">
+        <div class="contact-card">
+          <img src="assets/img/team/rayen.png" alt="Rayen Yahyaoui" />
+          <div class="contact-info">
+            <strong>Rayen Yahyaoui</strong>
+            <span class="contact-role">Project Lead</span>
+            <a href="tel:+21627222312"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 4h4l2 5-2.4 1.6a12.5 12.5 0 0 0 4.8 4.8L15 13l5 2v4a2 2 0 0 1-2 2A17 17 0 0 1 3 6a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>+216 27 222 312</a>
+            <a href="mailto:rayenyahyaoui@aiesec.net"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5" stroke="currentColor" stroke-width="1.8"/><path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>rayenyahyaoui@aiesec.net</a>
+          </div>
+        </div>
+        <div class="contact-card">
+          <img src="assets/img/team/amine.png" alt="Med Amine Touati" />
+          <div class="contact-info">
+            <strong>Med Amine Touati</strong>
+            <span class="contact-role">Organizing Committee President</span>
+            <a href="tel:+21653679141"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 4h4l2 5-2.4 1.6a12.5 12.5 0 0 0 4.8 4.8L15 13l5 2v4a2 2 0 0 1-2 2A17 17 0 0 1 3 6a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>+216 53 679 141</a>
+            <a href="mailto:aminetouati@aiesec.net"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5" stroke="currentColor" stroke-width="1.8"/><path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>aminetouati@aiesec.net</a>
+          </div>
+        </div>
+        <div class="contact-card">
+          <img src="assets/img/team/malek.png" alt="Malek Gazzeh" />
+          <div class="contact-info">
+            <strong>Malek Gazzeh</strong>
+            <span class="contact-role">External Relations Manager</span>
+            <a href="tel:+21693393033"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 4h4l2 5-2.4 1.6a12.5 12.5 0 0 0 4.8 4.8L15 13l5 2v4a2 2 0 0 1-2 2A17 17 0 0 1 3 6a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>+216 93 393 033</a>
+            <a href="mailto:mgazzeh03@gmail.com"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5" stroke="currentColor" stroke-width="1.8"/><path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>mgazzeh03@gmail.com</a>
+          </div>
+        </div>
       </div>
     </div>
   </div>

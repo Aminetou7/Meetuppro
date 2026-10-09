@@ -104,16 +104,13 @@
 
   /* ---------- Registration modal ---------- */
   const modal = document.getElementById("register-modal");
+  const partnerModal = document.getElementById("partner-modal");
   const form = document.getElementById("register-form");
   const success = document.getElementById("modal-success");
-  const trackInput = document.getElementById("modal-track");
-  const trackChip = document.getElementById("modal-track-chip");
   let lastFocus = null;
 
-  const openModal = (track) => {
+  const openModal = () => {
     lastFocus = document.activeElement;
-    trackInput.value = track;
-    trackChip.textContent = track === "youth" ? "Youth" : "Professional";
     form.hidden = false;
     success.hidden = true;
     form.querySelectorAll(".invalid").forEach((i) => i.classList.remove("invalid"));
@@ -125,20 +122,37 @@
   const closeModal = () => {
     modal.classList.remove("open");
     modal.setAttribute("aria-hidden", "true");
-    document.body.classList.remove("locked");
+    if (!partnerModal.classList.contains("open")) document.body.classList.remove("locked");
+    if (lastFocus) lastFocus.focus();
+  };
+  const openPartnerModal = () => {
+    lastFocus = document.activeElement;
+    partnerModal.classList.add("open");
+    partnerModal.setAttribute("aria-hidden", "false");
+    document.body.classList.add("locked");
+  };
+  const closePartnerModal = () => {
+    partnerModal.classList.remove("open");
+    partnerModal.setAttribute("aria-hidden", "true");
+    if (!modal.classList.contains("open")) document.body.classList.remove("locked");
     if (lastFocus) lastFocus.focus();
   };
 
   document.querySelectorAll("[data-open-modal]").forEach((btn) =>
     btn.addEventListener("click", () => {
       setMenu(false);
-      openModal(btn.dataset.track || "professional");
+      openModal();
     })
   );
+  document.querySelectorAll("[data-open-partner]").forEach((btn) =>
+    btn.addEventListener("click", openPartnerModal)
+  );
   modal.querySelectorAll("[data-close-modal]").forEach((el) => el.addEventListener("click", closeModal));
+  partnerModal.querySelectorAll("[data-close-partner]").forEach((el) => el.addEventListener("click", closePartnerModal));
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") {
       if (modal.classList.contains("open")) closeModal();
+      else if (partnerModal.classList.contains("open")) closePartnerModal();
       else if (mobileMenu.classList.contains("open")) setMenu(false);
     }
   });
@@ -147,7 +161,7 @@
   form.addEventListener("submit", (e) => {
     e.preventDefault();
     let valid = true;
-    form.querySelectorAll("input[required]").forEach((input) => {
+    form.querySelectorAll("input[required], select[required]").forEach((input) => {
       const ok = input.value.trim() !== "" && input.checkValidity();
       input.classList.toggle("invalid", !ok);
       if (!ok) valid = false;
@@ -156,9 +170,10 @@
     form.hidden = true;
     success.hidden = false;
   });
-  form.querySelectorAll("input").forEach((input) =>
-    input.addEventListener("input", () => input.classList.remove("invalid"))
-  );
+  form.querySelectorAll("input, select").forEach((input) => {
+    const evt = input.tagName === "SELECT" ? "change" : "input";
+    input.addEventListener(evt, () => input.classList.remove("invalid"));
+  });
 
   /* ---------- Hero video ---------- */
   const video = document.querySelector(".hero-video");

@@ -571,6 +571,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.15; letter-spa
 .modal-backdrop { position: absolute; inset: 0; background: rgba(4, 5, 12, 0.78); backdrop-filter: blur(6px); }
 .modal-card {
   position: relative; width: min(480px, 100%); max-height: 90svh; overflow-y: auto;
+  min-width: 0; max-width: 100%;
   background: #0d1020; border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 26px; padding: 42px 38px;
   transform: translateY(22px) scale(0.97); transition: transform 0.32s cubic-bezier(0.2, 0.9, 0.3, 1.2);
@@ -603,6 +604,46 @@ h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.15; letter-spa
 .field input::placeholder { color: rgba(154, 163, 184, 0.55); }
 .field input:focus { outline: none; border-color: var(--g2); box-shadow: 0 0 0 3px rgba(26, 219, 168, 0.18); }
 .field input.invalid { border-color: #ff5470; box-shadow: 0 0 0 3px rgba(255, 84, 112, 0.15); }
+.field-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 14px; }
+.field-row .field { min-width: 0; }
+.field select {
+  appearance: none; -webkit-appearance: none;
+  width: 100%; padding: 13px 40px 13px 15px;
+  background: rgba(255, 255, 255, 0.05) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='m6 9 6 6 6-6' stroke='%239aa3b8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat right 13px center / 18px;
+  border: 1px solid var(--line); border-radius: 12px;
+  color: var(--text); font: inherit; font-size: 14.5px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.field select:required:invalid, .field select option[value=""] { color: rgba(154, 163, 184, 0.75); }
+.field select option { background: #10121f; color: var(--text); }
+.field select:focus { outline: none; border-color: var(--g2); box-shadow: 0 0 0 3px rgba(26, 219, 168, 0.18); }
+.field select.invalid { border-color: #ff5470; box-shadow: 0 0 0 3px rgba(255, 84, 112, 0.15); }
+
+/* ---------- Partnership contacts ---------- */
+.inline-btn { background: none; border: none; padding: 0; font: inherit; cursor: pointer; }
+#partner-modal .pass-chip { display: inline-block; margin-bottom: 16px; }
+#partner-modal h3 { font-size: 25px; font-weight: 700; }
+#partner-modal .modal-sub { margin-top: 6px; margin-bottom: 20px; }
+.contact-cards { display: flex; flex-direction: column; gap: 14px; margin-top: 6px; }
+.contact-card {
+  display: flex; align-items: center; gap: 16px; text-align: left;
+  background: rgba(255, 255, 255, 0.04); border: 1px solid var(--line);
+  border-radius: 14px; padding: 16px 18px; min-width: 0;
+}
+.contact-info { min-width: 0; }
+.contact-card img {
+  width: 66px; height: 66px; border-radius: 50%; object-fit: cover; flex: none;
+  border: 2px solid rgba(26, 219, 168, 0.45);
+}
+.contact-info strong { display: block; font-size: 16px; font-weight: 700; }
+.contact-role { display: block; font-size: 12.5px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); margin: 3px 0 9px; }
+.contact-info a {
+  display: flex; align-items: center; gap: 8px; margin-top: 5px;
+  font-size: 13.5px; font-weight: 600; color: var(--g2); text-decoration: none;
+  overflow-wrap: anywhere;
+}
+.contact-info a:hover { text-decoration: underline; }
+.contact-info a svg { width: 15px; height: 15px; flex: none; }
 
 .modal-form .btn { margin-top: 8px; }
 .modal-legal { font-size: 12.5px; color: rgba(154, 163, 184, 0.7); text-align: center; }
@@ -652,6 +693,9 @@ h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.15; letter-spa
 @media (max-width: 520px) {
   .cards-grid { grid-template-columns: 1fr; }
   .edition-grid { grid-template-columns: 1fr; }
+  .edition-link .btn { white-space: normal; line-height: 1.35; }
+  .field-row { grid-template-columns: 1fr; gap: 16px; }
+  .contact-card { align-items: flex-start; }
   .stats-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
   .stat { padding: 24px 10px; }
   .hero-cta { flex-direction: column; width: 100%; }
