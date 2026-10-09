@@ -20,6 +20,22 @@
   burger.addEventListener("click", () => setMenu(!mobileMenu.classList.contains("open")));
   mobileMenu.querySelectorAll("a").forEach((a) => a.addEventListener("click", () => setMenu(false)));
 
+  /* ---------- Editions dropdown ---------- */
+  const navDrop = document.querySelector(".nav-drop");
+  const navDropTrigger = navDrop.querySelector(".nav-drop-trigger");
+  const setDrop = (open) => {
+    navDrop.classList.toggle("open", open);
+    navDropTrigger.setAttribute("aria-expanded", String(open));
+  };
+  navDropTrigger.addEventListener("click", (e) => {
+    e.stopPropagation();
+    setDrop(!navDrop.classList.contains("open"));
+  });
+  navDrop.querySelectorAll(".nav-drop-menu a").forEach((a) => a.addEventListener("click", () => setDrop(false)));
+  document.addEventListener("click", (e) => {
+    if (navDrop.classList.contains("open") && !navDrop.contains(e.target)) setDrop(false);
+  });
+
   /* ---------- Active nav link ---------- */
   const navLinks = [...document.querySelectorAll('.main-nav a[href^="#"]')];
   const sections = navLinks
@@ -183,6 +199,7 @@
       else if (partnerModal.classList.contains("open")) closePartnerModal();
       else if (chooseModal.classList.contains("open")) closeChooseModal();
       else if (mobileMenu.classList.contains("open")) setMenu(false);
+      else if (navDrop.classList.contains("open")) setDrop(false);
     }
   });
 

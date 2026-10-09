@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MeetUp Pro 2026 — Connecting the Sahel, strengthening Tunisia&rsquo;s entrepreneurial ecosystem</title>
-  <meta name="description" content="MeetUp Pro 2026 — 31 October 2026, Mouradi Club Kantaoui, Sousse. The professional meeting point of the Tunisian Sahel: panels, workshops, expo, B2B meetings and recruitment. Free Professional and Youth passes." />
+  <meta name="description" content="MeetUp Pro 2026 — 31 October 2026, Mouradi Club Kantaoui, Sousse. The professional meeting point of the Tunisian Sahel: panels, workshops, expo, B2B meetings and recruitment. Professional and Youth passes." />
   <meta property="og:title" content="MeetUp Pro 2026 — Connecting the Sahel, strengthening Tunisia&rsquo;s entrepreneurial ecosystem" />
-  <meta property="og:description" content="31 October 2026 · Mouradi Club Kantaoui, Sousse. Panels, workshops, expo, B2B meetings & recruitment. Free Professional & Youth passes." />
+  <meta property="og:description" content="31 October 2026 · Mouradi Club Kantaoui, Sousse. Panels, workshops, expo, B2B meetings & recruitment. Professional & Youth passes." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="assets/img/logo.png" />
   <link rel="icon" type="image/png" href="assets/img/favicon.png" />
@@ -28,7 +28,16 @@
         <ul>
           <li><a href="#about">About</a></li>
           <li><a href="#experience">Experience</a></li>
-          <li><a href="#edition">Edition 3.0</a></li>
+          <li class="nav-drop">
+            <button type="button" class="nav-drop-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="editions-menu">
+              Editions
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m6 9 6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <ul class="nav-drop-menu" id="editions-menu">
+              <li><a href="#edition">MeetUp Pro 3.0</a></li>
+              <li><a href="#edition">MeetUp Pro 2.0</a></li>
+            </ul>
+          </li>
           <li><a href="#program">Program</a></li>
           <li><a href="#agenda">Agenda</a></li>
           <li><a href="#speakers">Speakers</a></li>
@@ -50,7 +59,9 @@
     <nav aria-label="Mobile navigation">
       <a href="#about">About</a>
       <a href="#experience">Experience</a>
-      <a href="#edition">Edition 3.0</a>
+      <span class="mobile-menu-label">Editions</span>
+      <a href="#edition" class="edition-sub">MeetUp Pro 3.0</a>
+      <a href="#edition" class="edition-sub">MeetUp Pro 2.0</a>
       <a href="#program">Program</a>
       <a href="#agenda">Agenda</a>
       <a href="#speakers">Speakers</a>
@@ -73,7 +84,7 @@
       <div class="hero-grid" aria-hidden="true"></div>
 
       <div class="container hero-content">
-        <span class="hero-badge reveal">31 October 2026 &middot; Mouradi Club Kantaoui, Sousse &middot; Free access</span>
+        <span class="hero-badge reveal">31 October 2026 &middot; Mouradi Club Kantaoui, Sousse &middot; Registration open</span>
         <img src="assets/img/logo.png" alt="MeetUp Pro 2026 — Connecting minds, shaping futures" class="hero-logo reveal" />
         <p class="hero-lead reveal">
           Connecting the Sahel to strengthen the Tunisian entrepreneurial ecosystem &mdash;
@@ -160,7 +171,7 @@
             the synergies between all its actors.
           </p>
           <ul class="check-list">
-            <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m5 13 4 4L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Free access for professionals &amp; youth</li>
+            <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m5 13 4 4L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Open to professionals &amp; youth</li>
             <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m5 13 4 4L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>B2B meetings, recruitment &amp; partnering</li>
             <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m5 13 4 4L19 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Direct access to companies &amp; recruiters</li>
           </ul>
@@ -192,8 +203,8 @@
             </div>
           </div>
           <div class="float-card">
-            <strong>100% Free</strong>
-            <span>Professional &amp; Youth passes</span>
+            <strong>2 passes</strong>
+            <span>Professional &amp; Youth</span>
           </div>
         </div>
       </div>
@@ -492,7 +503,7 @@
     <section class="cta" id="join">
       <div class="container cta-inner reveal">
         <h2>Ready to join the movement?</h2>
-        <p>Seats are free but limited. Join us on 31 October 2026 at Mouradi Club Kantaoui, Sousse.</p>
+        <p>Seats are limited. Join us on 31 October 2026 at Mouradi Club Kantaoui, Sousse.</p>
         <div class="hero-cta">
           <button class="btn btn-primary btn-lg" data-open-modal>Register as Professional</button>
           <a class="btn btn-ghost btn-lg" href="https://tally.so/r/2EMNr9" target="_blank" rel="noopener">Register as Youth</a>
@@ -536,11 +547,27 @@
       </div>
       <div class="footer-col">
         <h4>Contact</h4>
-        <ul>
-          <li><a href="mailto:aminetouati@aiesec.net">aminetouati@aiesec.net</a></li>
-          <li><a href="tel:+21653679141">+216 53 679 141</a></li>
-          <li><span>31 Oct 2026 &mdash; Mouradi Club Kantaoui, Sousse</span></li>
+        <ul class="footer-contacts">
+          <li>
+            <strong>Rayen Yahyaoui</strong>
+            <span>Project Lead</span>
+            <a href="tel:+21627222312">+216 27 222 312</a>
+            <a href="mailto:rayenyahyaoui@aiesec.net">rayenyahyaoui@aiesec.net</a>
+          </li>
+          <li>
+            <strong>Med Amine Touati</strong>
+            <span>Organizing Committee President</span>
+            <a href="tel:+21653679141">+216 53 679 141</a>
+            <a href="mailto:aminetouati@aiesec.net">aminetouati@aiesec.net</a>
+          </li>
+          <li>
+            <strong>Malek Gazzeh</strong>
+            <span>External Relations Manager</span>
+            <a href="tel:+21693393033">+216 93 393 033</a>
+            <a href="mailto:mgazzeh03@gmail.com">mgazzeh03@gmail.com</a>
+          </li>
         </ul>
+        <p class="footer-venue">31 Oct 2026 &mdash; Mouradi Club Kantaoui, Sousse</p>
       </div>
     </div>
     <div class="container footer-bottom">
@@ -612,7 +639,7 @@
             <option>Learn &amp; get inspired</option>
           </select>
         </div>
-        <button type="submit" class="btn btn-primary btn-block">Confirm my free registration</button>
+        <button type="submit" class="btn btn-primary btn-block">Confirm my registration</button>
         <p class="modal-legal">By registering you agree to be contacted about MeetUp Pro 2026.</p>
       </form>
 

@@ -153,6 +153,33 @@ h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.15; letter-spa
 .main-nav a:hover { color: var(--g2); }
 .main-nav a.active { color: var(--g2); background: rgba(26, 219, 168, 0.1); }
 
+/* Editions dropdown */
+.nav-drop { position: relative; }
+.nav-drop-trigger {
+  display: inline-flex; align-items: center; gap: 6px;
+  color: var(--text); background: none; border: none; font: inherit;
+  font-size: 15px; font-weight: 500; padding: 9px 12px; border-radius: 999px;
+  cursor: pointer; white-space: nowrap; transition: color 0.2s, background-color 0.2s;
+}
+.nav-drop-trigger:hover { color: var(--g2); }
+.nav-drop-trigger svg { width: 14px; height: 14px; transition: transform 0.2s; }
+.nav-drop.open .nav-drop-trigger { color: var(--g2); background: rgba(26, 219, 168, 0.1); }
+.nav-drop.open .nav-drop-trigger svg { transform: rotate(180deg); }
+.nav-drop-menu {
+  position: absolute; top: calc(100% + 10px); left: 0; min-width: 190px;
+  background: rgba(10, 12, 24, 0.98); border: 1px solid var(--line); border-radius: 14px;
+  padding: 8px; list-style: none; display: flex; flex-direction: column; gap: 2px;
+  opacity: 0; visibility: hidden; transform: translateY(8px); pointer-events: none;
+  transition: opacity 0.2s, transform 0.2s, visibility 0.2s; box-shadow: var(--shadow); z-index: 60;
+}
+.nav-drop.open .nav-drop-menu { opacity: 1; visibility: visible; transform: none; pointer-events: auto; }
+.nav-drop-menu a {
+  display: block; padding: 9px 12px; border-radius: 9px; color: var(--text);
+  text-decoration: none; font-size: 14.5px; font-weight: 500; white-space: nowrap;
+  background: none; transition: background-color 0.2s, color 0.2s;
+}
+.nav-drop-menu a:hover { background: rgba(26, 219, 168, 0.1); color: var(--g2); }
+
 .header-actions { display: flex; align-items: center; gap: 14px; }
 
 .burger {
@@ -181,6 +208,12 @@ h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.15; letter-spa
   border-bottom: 1px solid var(--line); transition: color 0.2s, padding-left 0.2s;
 }
 .mobile-menu nav a:hover { color: var(--g2); padding-left: 8px; }
+.mobile-menu-label {
+  font-family: var(--font-display); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.18em; text-transform: uppercase; color: var(--g2); padding-top: 8px;
+}
+.mobile-menu nav a.edition-sub { font-size: 20px; padding: 4px 0 4px 18px; color: var(--muted); }
+.mobile-menu nav a.edition-sub:hover { color: var(--g2); padding-left: 26px; }
 .mobile-menu-cta { display: flex; flex-direction: column; gap: 12px; }
 
 /* ---------- Hero ---------- */
@@ -562,6 +595,13 @@ h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.15; letter-spa
   color: var(--muted); font-size: 15px; transition: color 0.2s;
 }
 .footer-col .link-btn:hover { color: var(--g2); }
+.footer-contacts { list-style: none; display: flex; flex-direction: column; gap: 16px; }
+.footer-contacts li { display: flex; flex-direction: column; gap: 3px; }
+.footer-contacts strong { color: var(--text); font-size: 15px; font-weight: 600; }
+.footer-contacts li > span { color: rgba(154, 163, 184, 0.7); font-size: 12.5px; }
+.footer-contacts a { color: var(--muted); text-decoration: none; font-size: 14px; transition: color 0.2s; overflow-wrap: anywhere; }
+.footer-contacts a:hover { color: var(--g2); }
+.footer-venue { margin-top: 16px; color: rgba(154, 163, 184, 0.7); font-size: 13.5px; }
 
 .footer-bottom {
   display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
