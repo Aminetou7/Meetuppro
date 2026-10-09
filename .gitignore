@@ -1,2 +1,3 @@
 .tool/
+.verify/
 node_modules/
