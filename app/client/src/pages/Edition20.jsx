@@ -17,8 +17,9 @@ export default function Edition20({ onOpenRegister }) {
         <div className={styles.heroGrid} aria-hidden="true"></div>
         <div className={`container ${styles.heroContent}`}>
           <span className={styles.badge}>Previous edition</span>
-          <p className={styles.script}>MeetUp Pro</p>
-          <h1 className={styles.themeTitle}><span>2.0</span></h1>
+          <h1 className={styles.heroH1}>
+            <img src="/img/logo-2.0.png" alt="MeetUp Pro 2.0" className={styles.heroLogo} />
+          </h1>
           <p className={styles.tagline}>
             A groundbreaking day that brought together the brightest minds in business and
             technology &mdash; and set new standards for B2B networking in the Sahel region.

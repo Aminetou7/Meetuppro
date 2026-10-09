@@ -12,14 +12,24 @@ export default function Header({ menuOpen, onToggleMenu, onOpenPartner, onOpenCh
   const [dropOpen, setDropOpen] = useState(false);
   const [active, setActive] = useState("");
   const dropRef = useRef(null);
+  const progressRef = useRef(null);
   const { pathname } = useLocation();
   const isHome = pathname === "/";
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 30);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 30);
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      const p = max > 0 ? Math.min(window.scrollY / max, 1) : 0;
+      if (progressRef.current) progressRef.current.style.transform = `scaleX(${p})`;
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
   }, []);
 
   // Scroll-spy for active section link (home page only)
@@ -56,6 +66,7 @@ export default function Header({ menuOpen, onToggleMenu, onOpenPartner, onOpenCh
 
   return (
     <header className={cx(styles.siteHeader, scrolled && styles.scrolled)} id="header">
+      <span className={styles.progress} ref={progressRef} aria-hidden="true"></span>
       <div className={cx("container", styles.headerInner)}>
         <Link to="/" className={styles.brand} aria-label="MeetUp Pro 2026 — home">
           <img src="/img/logo.png" alt="MeetUp Pro 2026 — Connecting minds, shaping futures" className={styles.brandLogo} />

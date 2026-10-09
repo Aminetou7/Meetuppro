@@ -2,58 +2,89 @@
   position: fixed; inset: 0 0 auto 0; z-index: 100;
   height: var(--header-h);
   display: flex; align-items: center;
-  transition: background-color 0.3s, backdrop-filter 0.3s, border-color 0.3s, height 0.3s;
+  transition: background-color 0.3s, backdrop-filter 0.3s, border-color 0.3s, height 0.3s, box-shadow 0.3s;
   border-bottom: 1px solid transparent;
 }
 .scrolled {
   background: rgba(6, 7, 18, 0.82);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(16px) saturate(1.4);
+  -webkit-backdrop-filter: blur(16px) saturate(1.4);
   border-bottom-color: var(--line);
+  box-shadow: 0 12px 40px -18px rgba(0, 0, 0, 0.6);
   height: 70px;
+}
+
+/* Scroll progress hairline along the header's bottom edge */
+.progress {
+  position: absolute; left: 0; right: 0; bottom: -1px; height: 2px; z-index: 2;
+  background: var(--grad);
+  transform: scaleX(0); transform-origin: left center;
+  pointer-events: none;
 }
 
 .headerInner { display: flex; align-items: center; justify-content: space-between; gap: 24px; width: min(1320px, 94%); }
 
-.brand { flex-shrink: 1; min-width: 0; }
+.brand { flex-shrink: 1; min-width: 0; display: inline-flex; transition: filter 0.25s, transform 0.25s; }
+.brand:hover { filter: drop-shadow(0 6px 22px rgba(26, 219, 168, 0.45)); transform: translateY(-1px); }
 .brandLogo { width: 216px; max-width: 100%; height: auto; transition: width 0.3s; }
 .scrolled .brandLogo { width: 176px; }
 
 .mainNav ul { display: flex; gap: 4px; list-style: none; }
 .mainNav a {
   color: var(--text); text-decoration: none; font-size: 15px; font-weight: 500;
-  padding: 9px 12px; border-radius: 999px; position: relative; white-space: nowrap;
+  padding: 9px 14px; border-radius: 999px; position: relative; white-space: nowrap;
   transition: color 0.2s, background-color 0.2s;
 }
-.mainNav a:hover { color: var(--g2); }
+/* animated underline indicator */
+.mainNav a::after {
+  content: ""; position: absolute; left: 14px; right: 14px; bottom: 4px; height: 2px;
+  border-radius: 2px; background: var(--grad);
+  transform: scaleX(0); transform-origin: center; transition: transform 0.25s;
+}
+.mainNav a:hover { color: var(--g2); background: rgba(255, 255, 255, 0.04); }
+.mainNav a:hover::after { transform: scaleX(0.55); }
 .mainNav a.active { color: var(--g2); background: rgba(26, 219, 168, 0.1); }
+.mainNav a.active::after { transform: scaleX(1); }
 
 /* Editions dropdown */
 .navDrop { position: relative; }
 .navDropTrigger {
   display: inline-flex; align-items: center; gap: 6px;
   color: var(--text); background: none; border: none; font: inherit;
-  font-size: 15px; font-weight: 500; padding: 9px 12px; border-radius: 999px;
+  font-size: 15px; font-weight: 500; padding: 9px 14px; border-radius: 999px;
   cursor: pointer; white-space: nowrap; transition: color 0.2s, background-color 0.2s;
 }
-.navDropTrigger:hover { color: var(--g2); }
+.navDropTrigger:hover { color: var(--g2); background: rgba(255, 255, 255, 0.04); }
 .navDropTrigger svg { width: 14px; height: 14px; transition: transform 0.2s; }
 .navDrop.open .navDropTrigger { color: var(--g2); background: rgba(26, 219, 168, 0.1); }
 .navDrop.open .navDropTrigger svg { transform: rotate(180deg); }
 .navDropMenu {
-  position: absolute; top: calc(100% + 10px); left: 0; min-width: 190px;
-  background: rgba(10, 12, 24, 0.98); border: 1px solid var(--line); border-radius: 14px;
+  position: absolute; top: calc(100% + 12px); left: 0; min-width: 200px;
+  background: rgba(10, 12, 24, 0.98); border: 1px solid var(--line); border-radius: 16px;
   padding: 8px; list-style: none; display: flex; flex-direction: column; gap: 2px;
-  opacity: 0; visibility: hidden; transform: translateY(8px); pointer-events: none;
-  transition: opacity 0.2s, transform 0.2s, visibility 0.2s; box-shadow: var(--shadow); z-index: 60;
+  opacity: 0; visibility: hidden; transform: translateY(10px) scale(0.98); pointer-events: none;
+  transition: opacity 0.22s, transform 0.22s, visibility 0.22s;
+  box-shadow: 0 24px 60px -20px rgba(0, 0, 0, 0.7); z-index: 60; overflow: hidden;
+}
+/* gradient accent along the top of the menu */
+.navDropMenu::before {
+  content: ""; position: absolute; inset: 0 0 auto 0; height: 2px; background: var(--grad);
 }
 .navDrop.open .navDropMenu { opacity: 1; visibility: visible; transform: none; pointer-events: auto; }
 .navDropMenu a {
-  display: block; padding: 9px 12px; border-radius: 9px; color: var(--text);
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 12px; border-radius: 10px; color: var(--text);
   text-decoration: none; font-size: 14.5px; font-weight: 500; white-space: nowrap;
-  background: none; transition: background-color 0.2s, color 0.2s;
+  background: none; transition: background-color 0.2s, color 0.2s, padding-left 0.2s;
 }
-.navDropMenu a:hover { background: rgba(26, 219, 168, 0.1); color: var(--g2); }
+.navDropMenu a::before {
+  content: ""; width: 6px; height: 6px; border-radius: 50%;
+  background: var(--grad); opacity: 0; transition: opacity 0.2s; flex-shrink: 0;
+}
+.navDropMenu a:hover { background: rgba(26, 219, 168, 0.1); color: var(--g2); padding-left: 14px; }
+.navDropMenu a:hover::before { opacity: 1; }
+.navDropMenu a.active { color: var(--g2); background: rgba(26, 219, 168, 0.1); }
+.navDropMenu a.active::before { opacity: 1; }
 
 .headerActions { display: flex; align-items: center; gap: 14px; }
 

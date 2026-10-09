@@ -35,16 +35,10 @@
 }
 .badge::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--g2); box-shadow: 0 0 12px var(--g2); }
 
-.script {
-  font-family: "Great Vibes", cursive;
-  font-size: clamp(40px, 7vw, 80px); line-height: 1;
-  background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent;
-  filter: drop-shadow(0 8px 24px rgba(26, 219, 168, 0.35));
-}
-.themeTitle {
-  font-family: var(--font-display); font-weight: 800;
-  font-size: clamp(64px, 14vw, 150px); line-height: 1; color: #fff;
-  text-shadow: 0 10px 40px rgba(0, 0, 0, 0.5); margin: 4px 0 24px;
+.heroH1 { line-height: 0; margin: 6px 0 26px; }
+.heroLogo {
+  width: min(620px, 86vw); height: auto; margin-inline: auto;
+  filter: drop-shadow(0 14px 44px rgba(26, 219, 168, 0.35));
 }
 .tagline { max-width: 640px; color: rgba(238, 241, 248, 0.82); font-size: clamp(15px, 1.8vw, 18px); }
 
