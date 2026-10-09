@@ -8,8 +8,8 @@ export const NAV_LINKS = [
 ];
 
 export const EDITIONS = [
-  { href: "#edition", label: "MeetUp Pro 3.0" },
-  { href: "#edition", label: "MeetUp Pro 2.0" },
+  { href: "/editions/3.0", label: "MeetUp Pro 3.0" },
+  { href: "/editions/2.0", label: "MeetUp Pro 2.0" },
 ];
 
 export const MARQUEE_ITEMS = [
@@ -65,29 +65,6 @@ export const EXPERIENCE = [
     title: "B2B Meetings & Recruitment",
     text: "Scheduled business meetings, a dedicated recruiting space and CV sharing — where the right conversation finds you.",
   },
-];
-
-export const EDITION_STATS = [
-  { count: 800, suffix: "+", label: "Attendees" },
-  { count: 50, suffix: "+", label: "Expert speakers" },
-  { count: 30, suffix: "+", label: "Exhibiting companies" },
-  { count: 4, suffix: "", label: "Discussion panels" },
-];
-
-export const EDITION_CARDS = [
-  { title: "Business Fair", text: "Companies and startups from across the Sahel gathered in one space to showcase products, services and know-how." },
-  { title: "B2B Meetings", text: "Scheduled one-to-one business meetings that turned introductions into concrete partnerships and deals." },
-  { title: "Discussion Panels", text: "Four panels in the Main Plenary Hall bringing together founders, investors and corporates around the region’s real challenges." },
-  { title: "Job Fair", text: "A dedicated recruitment space where young talents met employers face to face — CVs exchanged, interviews booked on the spot." },
-  { title: "SSOs Reverse Pitching", text: "Support and funding organizations flipped the script, pitching their programs directly to entrepreneurs in the audience." },
-  { title: "Startup & Innovation Showcase", text: "A spotlight on the region’s most promising startups and student innovations, with dedicated VIP partner spaces." },
-];
-
-export const EDITION_PANELS = [
-  "Unlocking Capital: The Path to Investment Readiness",
-  "Entrepreneurial Ecosystems: Expectations vs. Realities",
-  "From Vision to Venture: Turning Ideas into Startups",
-  "Workplace 2030: The Gen Z Effect & The Skills That Matter",
 ];
 
 export const PANELS = [

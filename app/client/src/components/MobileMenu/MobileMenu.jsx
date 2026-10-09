@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styles from "./MobileMenu.module.css";
 import { NAV_LINKS, EDITIONS } from "../../data/content.js";
 import Button from "../Button/Button.jsx";
@@ -9,16 +10,16 @@ export default function MobileMenu({ open, onClose, onOpenChoose, onOpenPartner 
   return (
     <div className={cx(styles.mobileMenu, open && styles.open)} id="mobile-menu" aria-hidden={!open}>
       <nav className={styles.nav} aria-label="Mobile navigation">
-        <a href="#about" onClick={onClose}>About</a>
-        <a href="#experience" onClick={onClose}>Experience</a>
+        <Link to="/#about" onClick={onClose}>About</Link>
+        <Link to="/#experience" onClick={onClose}>Experience</Link>
         <span className={styles.label}>Editions</span>
         {EDITIONS.map((ed) => (
-          <a key={ed.label} href={ed.href} className={styles.editionSub} onClick={onClose}>{ed.label}</a>
+          <Link key={ed.label} to={ed.href} className={styles.editionSub} onClick={onClose}>{ed.label}</Link>
         ))}
         {NAV_LINKS.slice(2).map((l) => (
-          <a key={l.href} href={l.href} onClick={onClose}>{l.label}</a>
+          <Link key={l.href} to={"/" + l.href} onClick={onClose}>{l.label}</Link>
         ))}
-        <a href="#faq" onClick={onClose}>FAQ</a>
+        <Link to="/#faq" onClick={onClose}>FAQ</Link>
       </nav>
       <div className={styles.cta}>
         <Button variant="primary" onClick={go(onOpenChoose)}>Register</Button>

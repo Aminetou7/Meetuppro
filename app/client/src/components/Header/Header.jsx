@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import styles from "./Header.module.css";
 import { NAV_LINKS, EDITIONS } from "../../data/content.js";
 import { ChevronDown } from "../Icons.jsx";
@@ -11,6 +12,8 @@ export default function Header({ menuOpen, onToggleMenu, onOpenPartner, onOpenCh
   const [dropOpen, setDropOpen] = useState(false);
   const [active, setActive] = useState("");
   const dropRef = useRef(null);
+  const { pathname } = useLocation();
+  const isHome = pathname === "/";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 30);
@@ -19,11 +22,10 @@ export default function Header({ menuOpen, onToggleMenu, onOpenPartner, onOpenCh
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Scroll-spy for active nav link
+  // Scroll-spy for active section link (home page only)
   useEffect(() => {
-    const links = [...NAV_LINKS.map((l) => l.href), ...EDITIONS.map((e) => e.href)];
-    const ids = [...new Set(links.map((h) => h.slice(1)))];
-    const sections = ids.map((id) => document.getElementById(id)).filter(Boolean);
+    if (!isHome) { setActive(""); return; }
+    const sections = NAV_LINKS.map((l) => document.getElementById(l.href.slice(1))).filter(Boolean);
     const io = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -34,9 +36,10 @@ export default function Header({ menuOpen, onToggleMenu, onOpenPartner, onOpenCh
     );
     sections.forEach((s) => io.observe(s));
     return () => io.disconnect();
-  }, []);
+  }, [isHome]);
 
-  // Close dropdown on outside click
+  // Close dropdown on outside click / route change
+  useEffect(() => { setDropOpen(false); }, [pathname]);
   useEffect(() => {
     if (!dropOpen) return;
     const onDocClick = (e) => {
@@ -54,18 +57,18 @@ export default function Header({ menuOpen, onToggleMenu, onOpenPartner, onOpenCh
   return (
     <header className={cx(styles.siteHeader, scrolled && styles.scrolled)} id="header">
       <div className={cx("container", styles.headerInner)}>
-        <a href="#home" className={styles.brand} aria-label="MeetUp Pro 2026 — home">
+        <Link to="/" className={styles.brand} aria-label="MeetUp Pro 2026 — home">
           <img src="/img/logo.png" alt="MeetUp Pro 2026 — Connecting minds, shaping futures" className={styles.brandLogo} />
-        </a>
+        </Link>
 
         <nav className={styles.mainNav} aria-label="Main navigation">
           <ul>
-            <li><a href="#about" className={active === "#about" ? styles.active : ""}>About</a></li>
-            <li><a href="#experience" className={active === "#experience" ? styles.active : ""}>Experience</a></li>
+            <li><Link to="/#about" className={isHome && active === "#about" ? styles.active : ""}>About</Link></li>
+            <li><Link to="/#experience" className={isHome && active === "#experience" ? styles.active : ""}>Experience</Link></li>
             <li className={cx(styles.navDrop, dropOpen && styles.open)} ref={dropRef}>
               <button
                 type="button"
-                className={styles.navDropTrigger}
+                className={cx(styles.navDropTrigger, !isHome && EDITIONS.some((e) => e.href === pathname) && styles.active)}
                 aria-haspopup="true"
                 aria-expanded={dropOpen}
                 aria-controls="editions-menu"
@@ -75,12 +78,16 @@ export default function Header({ menuOpen, onToggleMenu, onOpenPartner, onOpenCh
               </button>
               <ul className={styles.navDropMenu} id="editions-menu">
                 {EDITIONS.map((ed) => (
-                  <li key={ed.label}><a href={ed.href} onClick={() => setDropOpen(false)}>{ed.label}</a></li>
+                  <li key={ed.label}>
+                    <Link to={ed.href} className={pathname === ed.href ? styles.active : ""} onClick={() => setDropOpen(false)}>
+                      {ed.label}
+                    </Link>
+                  </li>
                 ))}
               </ul>
             </li>
             {NAV_LINKS.slice(2).map((l) => (
-              <li key={l.href}><a href={l.href} className={active === l.href ? styles.active : ""}>{l.label}</a></li>
+              <li key={l.href}><Link to={"/" + l.href} className={isHome && active === l.href ? styles.active : ""}>{l.label}</Link></li>
             ))}
           </ul>
         </nav>

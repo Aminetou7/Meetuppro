@@ -1,4 +1,5 @@
 import styles from "./Footer.module.css";
+import { Link } from "react-router-dom";
 import { CONTACTS, YOUTH_LINK } from "../../data/content.js";
 import { LinkedInIcon, InstagramIcon, XIcon, YouTubeIcon } from "../Icons.jsx";
 
@@ -26,13 +27,13 @@ export default function Footer({ onOpenRegister }) {
         <div className={styles.col}>
           <h4>Explore</h4>
           <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#edition">Edition 3.0</a></li>
-            <li><a href="#program">Program</a></li>
-            <li><a href="#agenda">Agenda</a></li>
-            <li><a href="#speakers">Speakers</a></li>
-            <li><a href="#partners">Partners</a></li>
+            <li><Link to="/#about">About</Link></li>
+            <li><Link to="/#experience">Experience</Link></li>
+            <li><Link to="/editions/3.0">Edition 3.0</Link></li>
+            <li><Link to="/#program">Program</Link></li>
+            <li><Link to="/#agenda">Agenda</Link></li>
+            <li><Link to="/#speakers">Speakers</Link></li>
+            <li><Link to="/#partners">Partners</Link></li>
           </ul>
         </div>
 
@@ -41,7 +42,7 @@ export default function Footer({ onOpenRegister }) {
           <ul>
             <li><button type="button" className={styles.linkBtn} onClick={onOpenRegister}>Professional Pass</button></li>
             <li><a href={YOUTH_LINK} target="_blank" rel="noopener">Youth Pass</a></li>
-            <li><a href="#faq">FAQ</a></li>
+            <li><Link to="/#faq">FAQ</Link></li>
           </ul>
         </div>
 
