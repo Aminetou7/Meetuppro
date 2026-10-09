@@ -102,39 +102,52 @@
     });
   });
 
-  /* ---------- Registration modal ---------- */
+  /* ---------- Modals ---------- */
   const modal = document.getElementById("register-modal");
   const partnerModal = document.getElementById("partner-modal");
+  const chooseModal = document.getElementById("choose-modal");
   const form = document.getElementById("register-form");
   const success = document.getElementById("modal-success");
   let lastFocus = null;
+
+  const anyModalOpen = () => [modal, partnerModal, chooseModal].some((m) => m.classList.contains("open"));
+  const showModal = (m) => {
+    m.classList.add("open");
+    m.setAttribute("aria-hidden", "false");
+    document.body.classList.add("locked");
+  };
+  const hideModal = (m) => {
+    m.classList.remove("open");
+    m.setAttribute("aria-hidden", "true");
+    if (!anyModalOpen()) document.body.classList.remove("locked");
+  };
 
   const openModal = () => {
     lastFocus = document.activeElement;
     form.hidden = false;
     success.hidden = true;
     form.querySelectorAll(".invalid").forEach((i) => i.classList.remove("invalid"));
-    modal.classList.add("open");
-    modal.setAttribute("aria-hidden", "false");
-    document.body.classList.add("locked");
+    showModal(modal);
     setTimeout(() => document.getElementById("f-name").focus(), 260);
   };
   const closeModal = () => {
-    modal.classList.remove("open");
-    modal.setAttribute("aria-hidden", "true");
-    if (!partnerModal.classList.contains("open")) document.body.classList.remove("locked");
+    hideModal(modal);
     if (lastFocus) lastFocus.focus();
   };
   const openPartnerModal = () => {
     lastFocus = document.activeElement;
-    partnerModal.classList.add("open");
-    partnerModal.setAttribute("aria-hidden", "false");
-    document.body.classList.add("locked");
+    showModal(partnerModal);
   };
   const closePartnerModal = () => {
-    partnerModal.classList.remove("open");
-    partnerModal.setAttribute("aria-hidden", "true");
-    if (!modal.classList.contains("open")) document.body.classList.remove("locked");
+    hideModal(partnerModal);
+    if (lastFocus) lastFocus.focus();
+  };
+  const openChooseModal = () => {
+    lastFocus = document.activeElement;
+    showModal(chooseModal);
+  };
+  const closeChooseModal = () => {
+    hideModal(chooseModal);
     if (lastFocus) lastFocus.focus();
   };
 
@@ -145,14 +158,30 @@
     })
   );
   document.querySelectorAll("[data-open-partner]").forEach((btn) =>
-    btn.addEventListener("click", openPartnerModal)
+    btn.addEventListener("click", () => {
+      setMenu(false);
+      openPartnerModal();
+    })
+  );
+  document.querySelectorAll("[data-open-choose]").forEach((btn) =>
+    btn.addEventListener("click", () => {
+      setMenu(false);
+      openChooseModal();
+    })
   );
   modal.querySelectorAll("[data-close-modal]").forEach((el) => el.addEventListener("click", closeModal));
   partnerModal.querySelectorAll("[data-close-partner]").forEach((el) => el.addEventListener("click", closePartnerModal));
+  chooseModal.querySelectorAll("[data-close-choose]").forEach((el) => el.addEventListener("click", closeChooseModal));
+  chooseModal.querySelector('[data-choose="professional"]').addEventListener("click", () => {
+    closeChooseModal();
+    openModal();
+  });
+  chooseModal.querySelector('[data-choose="youth"]').addEventListener("click", () => closeChooseModal());
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") {
       if (modal.classList.contains("open")) closeModal();
       else if (partnerModal.classList.contains("open")) closePartnerModal();
+      else if (chooseModal.classList.contains("open")) closeChooseModal();
       else if (mobileMenu.classList.contains("open")) setMenu(false);
     }
   });
