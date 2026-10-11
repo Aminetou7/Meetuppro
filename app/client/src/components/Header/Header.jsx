@@ -79,7 +79,10 @@ export default function Header({ menuOpen, onToggleMenu, onOpenPartner, onOpenCh
             <li className={cx(styles.navDrop, dropOpen && styles.open)} ref={dropRef}>
               <button
                 type="button"
-                className={cx(styles.navDropTrigger, !isHome && EDITIONS.some((e) => e.href === pathname) && styles.active)}
+                className={cx(
+                  styles.navDropTrigger,
+                  (dropOpen || (!isHome && EDITIONS.some((e) => e.hasLink && e.href === pathname))) && styles.active
+                )}
                 aria-haspopup="true"
                 aria-expanded={dropOpen}
                 aria-controls="editions-menu"
@@ -90,9 +93,19 @@ export default function Header({ menuOpen, onToggleMenu, onOpenPartner, onOpenCh
               <ul className={styles.navDropMenu} id="editions-menu">
                 {EDITIONS.map((ed) => (
                   <li key={ed.label}>
-                    <Link to={ed.href} className={pathname === ed.href ? styles.active : ""} onClick={() => setDropOpen(false)}>
-                      {ed.label}
-                    </Link>
+                    {ed.hasLink ? (
+                      <Link
+                        to={ed.href}
+                        className={pathname === ed.href ? styles.active : ""}
+                        onClick={() => setDropOpen(false)}
+                      >
+                        {ed.label}
+                      </Link>
+                    ) : (
+                      <span className={styles.navDropDisabled}>
+                        {ed.label}
+                      </span>
+                    )}
                   </li>
                 ))}
               </ul>

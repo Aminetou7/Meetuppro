@@ -22,4 +22,5 @@
 }
 .nav a.editionSub { font-size: 20px; padding: 4px 0 4px 18px; color: var(--muted); }
 .nav a.editionSub:hover { color: var(--g2); padding-left: 26px; }
+.nav .editionSub.disabled { font-size: 20px; padding: 4px 0 4px 18px; color: rgba(255, 255, 255, 0.35); cursor: default; }
 .cta { display: flex; flex-direction: column; gap: 12px; }

@@ -1,5 +1,4 @@
 .head {
-  display: flex; align-items: flex-end; justify-content: space-between; gap: 30px;
   margin-bottom: 56px;
 }
 .eyebrow {
@@ -11,38 +10,74 @@
 .title { font-size: clamp(30px, 4.4vw, 46px); font-weight: 700; margin-bottom: 18px; }
 .sub { color: var(--muted); max-width: 620px; font-size: 17px; }
 
-.controls { display: flex; gap: 10px; }
-.btn {
-  width: 48px; height: 48px; border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.22); background: transparent; color: var(--text);
-  cursor: pointer; display: inline-flex; align-items: center; justify-content: center;
-  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+/* ---- Auto-scroll strip ---- */
+.scrollWrapper {
+  overflow: hidden;
+  width: 100%;
+  /* soft fade on left + right edges */
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+  padding: 6px 0 22px;
 }
-.btn svg { width: 20px; height: 20px; }
-.btn:hover { background: var(--grad); color: var(--ink); border-color: transparent; }
 
-.rail {
-  display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory;
-  padding: 6px 6px 22px; scrollbar-width: none;
+.track {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+  animation: scrollRight 28s linear infinite;
 }
-.rail::-webkit-scrollbar { display: none; }
 
+.track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes scrollRight {
+  0%   { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+/* ---- Speaker card (same style as before) ---- */
 .card {
-  flex: 0 0 250px; scroll-snap-align: start;
-  background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
-  padding: 30px 24px; text-align: center;
+  flex: 0 0 250px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 30px 24px;
+  text-align: center;
   transition: transform 0.28s, border-color 0.28s;
+  user-select: none;
 }
-.card:hover { transform: translateY(-6px); border-color: rgba(15, 205, 243, 0.4); }
+.card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(15, 205, 243, 0.4);
+}
+
+/* Gradient avatar circle with person silhouette */
 .avatar {
   width: 96px; height: 96px; border-radius: 50%; margin: 0 auto 18px;
   background: linear-gradient(135deg, var(--a), var(--b));
   display: flex; align-items: center; justify-content: center;
-  font-family: var(--font-display); font-weight: 700; font-size: 28px; color: var(--ink);
+  overflow: hidden;
 }
-.card h3 { font-size: 17.5px; font-weight: 600; margin-bottom: 6px; }
-.card p { color: var(--muted); font-size: 14px; }
+.avatar svg { width: 60px; height: 60px; }
 
-@media (max-width: 720px) {
-  .head { flex-direction: column; align-items: flex-start; }
+/* "Coming Soon" label — gradient text */
+.comingSoonLabel {
+  font-size: 16px;
+  font-weight: 700;
+  font-family: var(--font-display);
+  background: var(--grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 6px;
+}
+
+.comingSoonSub {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .track { animation: none; overflow-x: auto; }
 }

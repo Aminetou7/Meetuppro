@@ -1,6 +1,6 @@
-export const EDITION30 = {
-  name: "MeetUp Pro 3.0",
-  date: "13 December 2025",
+export const EDITION2025 = {
+  name: "MeetUp Pro 2025",
+  date: "13 DECEMBER 2025",
   venue: "Hotel L’Orient Palace, Sousse",
   tagline:
     "The largest B2B networking event in the Sahel region — co-organized by AIESEC in Sousse and the Polytechnic School of Sousse.",
@@ -148,3 +148,5 @@ export const EDITION30 = {
     },
   ],
 };
+
+export const EDITION30 = EDITION2025;

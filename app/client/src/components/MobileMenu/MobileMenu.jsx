@@ -13,9 +13,13 @@ export default function MobileMenu({ open, onClose, onOpenChoose, onOpenPartner 
         <Link to="/#about" onClick={onClose}>About</Link>
         <Link to="/#experience" onClick={onClose}>Experience</Link>
         <span className={styles.label}>Editions</span>
-        {EDITIONS.map((ed) => (
-          <Link key={ed.label} to={ed.href} className={styles.editionSub} onClick={onClose}>{ed.label}</Link>
-        ))}
+        {EDITIONS.map((ed) =>
+          ed.hasLink ? (
+            <Link key={ed.label} to={ed.href} className={styles.editionSub} onClick={onClose}>{ed.label}</Link>
+          ) : (
+            <span key={ed.label} className={cx(styles.editionSub, styles.disabled)}>{ed.label}</span>
+          )
+        )}
         {NAV_LINKS.slice(2).map((l) => (
           <Link key={l.href} to={"/" + l.href} onClick={onClose}>{l.label}</Link>
         ))}

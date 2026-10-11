@@ -8,8 +8,9 @@ export const NAV_LINKS = [
 ];
 
 export const EDITIONS = [
-  { href: "/editions/3.0", label: "MeetUp Pro 3.0" },
-  { href: "/editions/2.0", label: "MeetUp Pro 2.0" },
+  { href: "/editions/2025", label: "MeetUp Pro 2025", hasLink: true },
+  { label: "MeetUp Pro 2024", hasLink: false },
+  { label: "MeetUp Pro 2023", hasLink: false },
 ];
 
 export const MARQUEE_ITEMS = [
@@ -160,3 +161,4 @@ export const GOAL_OPTIONS = [
 ];
 
 export const YOUTH_LINK = "https://tally.so/r/2EMNr9";
+export const PROFESSIONAL_LINK = "https://tally.so/r/LZAKdv?fbclid=IwY2xjawU3KjhleHRuA2FlbQIxMABwZG9mBWJyaWQRMUxXVFhzUlJVVnNYdVZ4b01zcnRjBmFwcF9pZBAyMjIwMzkxNzg4MjAwODkyAAEeo1FAuh922-oBYA8BBJpYQJhQ7gtg9PtcTMIrqkDCmvVVig0cD4GXp7H4EBY_aem_46GR3Pa4DcbQ2W1nqQzDGg";

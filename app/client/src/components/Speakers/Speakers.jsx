@@ -1,16 +1,18 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import styles from "./Speakers.module.css";
 import Reveal from "../Reveal/Reveal.jsx";
-import { ChevronLeft, ChevronRight } from "../Icons.jsx";
 import { SPEAKERS } from "../../data/content.js";
 
 export default function Speakers() {
-  const railRef = useRef(null);
-  const step = () => {
-    const card = railRef.current?.querySelector("article");
-    return card ? card.offsetWidth + 20 : 270;
-  };
-  const scrollBy = (dir) => railRef.current?.scrollBy({ left: dir * step(), behavior: "smooth" });
+  const trackRef = useRef(null);
+
+  useEffect(() => {
+    const track = trackRef.current;
+    if (!track) return;
+    // Duplicate cards so the loop is seamless
+    const originals = Array.from(track.children);
+    originals.forEach((card) => track.appendChild(card.cloneNode(true)));
+  }, []);
 
   return (
     <section className="section" id="speakers">
@@ -21,19 +23,23 @@ export default function Speakers() {
             <h2 className={styles.title}>Voices worth crossing the city for</h2>
             <p className={styles.sub}>35+ speakers will take the stage — line-up reveal coming soon.</p>
           </div>
-          <div className={styles.controls}>
-            <button className={styles.btn} aria-label="Previous speakers" onClick={() => scrollBy(-1)}><ChevronLeft /></button>
-            <button className={styles.btn} aria-label="Next speakers" onClick={() => scrollBy(1)}><ChevronRight /></button>
-          </div>
         </Reveal>
       </div>
-      <div className="container">
-        <div className={styles.rail} ref={railRef}>
+
+      {/* Full-width auto-scroll strip — no container so it bleeds edge-to-edge */}
+      <div className={styles.scrollWrapper}>
+        <div className={styles.track} ref={trackRef}>
           {SPEAKERS.map((s, i) => (
             <article className={styles.card} key={i}>
-              <div className={styles.avatar} style={{ "--a": s.a, "--b": s.b }}>{s.initials}</div>
-              <h3>Speaker Name</h3>
-              <p>Role — Company</p>
+              <div className={styles.avatar} style={{ "--a": s.a, "--b": s.b }}>
+                {/* person silhouette icon */}
+                <svg viewBox="0 0 40 40" fill="none" aria-hidden="true">
+                  <circle cx="20" cy="14" r="7" fill="rgba(255,255,255,0.25)" />
+                  <path d="M6 36c0-7.732 6.268-14 14-14s14 6.268 14 14" fill="rgba(255,255,255,0.18)" />
+                </svg>
+              </div>
+              <h3 className={styles.comingSoonLabel}>Coming Soon</h3>
+              <p className={styles.comingSoonSub}>Speaker TBA</p>
             </article>
           ))}
         </div>

@@ -1,6 +1,6 @@
 import styles from "./Footer.module.css";
 import { Link } from "react-router-dom";
-import { CONTACTS, YOUTH_LINK } from "../../data/content.js";
+import { CONTACTS, YOUTH_LINK, PROFESSIONAL_LINK } from "../../data/content.js";
 import { LinkedInIcon, InstagramIcon, XIcon, YouTubeIcon } from "../Icons.jsx";
 
 const SOCIALS = [
@@ -29,7 +29,9 @@ export default function Footer({ onOpenRegister }) {
           <ul>
             <li><Link to="/#about">About</Link></li>
             <li><Link to="/#experience">Experience</Link></li>
-            <li><Link to="/editions/3.0">Edition 3.0</Link></li>
+            <li><Link to="/editions/2025">MeetUp Pro 2025</Link></li>
+            <li><span>MeetUp Pro 2024</span></li>
+            <li><span>MeetUp Pro 2023</span></li>
             <li><Link to="/#program">Program</Link></li>
             <li><Link to="/#agenda">Agenda</Link></li>
             <li><Link to="/#speakers">Speakers</Link></li>
@@ -40,7 +42,7 @@ export default function Footer({ onOpenRegister }) {
         <div className={styles.col}>
           <h4>Register</h4>
           <ul>
-            <li><button type="button" className={styles.linkBtn} onClick={onOpenRegister}>Professional Pass</button></li>
+            <li><a href={PROFESSIONAL_LINK} target="_blank" rel="noopener">Professional Pass</a></li>
             <li><a href={YOUTH_LINK} target="_blank" rel="noopener">Youth Pass</a></li>
             <li><Link to="/#faq">FAQ</Link></li>
           </ul>

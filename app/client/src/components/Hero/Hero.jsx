@@ -3,7 +3,7 @@ import styles from "./Hero.module.css";
 import Reveal from "../Reveal/Reveal.jsx";
 import Button from "../Button/Button.jsx";
 import { ArrowRight } from "../Icons.jsx";
-import { YOUTH_LINK } from "../../data/content.js";
+import { YOUTH_LINK, PROFESSIONAL_LINK } from "../../data/content.js";
 
 export default function Hero({ onOpenRegister }) {
   const videoRef = useRef(null);
@@ -28,7 +28,7 @@ export default function Hero({ onOpenRegister }) {
         poster="/img/hero-poster.jpg"
         disablePictureInPicture tabIndex="-1" aria-hidden="true"
       >
-        <source src="/video/aftermovie-web.mp4" type="video/mp4" />
+        <source src="/video/aftermovie-web.mp4?v=2" type="video/mp4" />
       </video>
       <div className={styles.overlay} aria-hidden="true"></div>
       <div className={styles.grid} aria-hidden="true"></div>
@@ -42,7 +42,7 @@ export default function Hero({ onOpenRegister }) {
           to create real opportunities.
         </Reveal>
         <Reveal className={styles.cta} delay={270}>
-          <Button variant="primary" size="lg" onClick={onOpenRegister}>
+          <Button as="a" variant="primary" size="lg" href={PROFESSIONAL_LINK} target="_blank" rel="noopener">
             Register as Professional <ArrowRight />
           </Button>
           <Button as="a" variant="ghost" size="lg" href={YOUTH_LINK} target="_blank" rel="noopener">

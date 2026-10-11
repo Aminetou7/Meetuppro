@@ -1,22 +1,44 @@
-import styles from "./Edition30.module.css";
+import { useEffect, useRef } from "react";
+import styles from "./Edition2025.module.css";
 import Reveal from "../components/Reveal/Reveal.jsx";
 import Card from "../components/Card/Card.jsx";
 import StatsGrid from "../components/StatsGrid/StatsGrid.jsx";
 import Button from "../components/Button/Button.jsx";
+import Gallery from "../components/Gallery/Gallery.jsx";
 import { BoothIcon, PeopleIcon, MicIcon, BriefcaseIcon, LinkedInIcon, ArrowRight } from "../components/Icons.jsx";
-import { EDITION30 } from "../data/edition30.js";
+import { EDITION2025 } from "../data/edition2025.js";
 
 const ICONS = { booth: BoothIcon, people: PeopleIcon, mic: MicIcon, briefcase: BriefcaseIcon };
-
 const cx = (...c) => c.filter(Boolean).join(" ");
 
-export default function Edition30({ onOpenRegister }) {
-  const { theme, stats, categories, panels, date, venue, tagline } = EDITION30;
+export default function Edition2025({ onOpenRegister }) {
+  const { theme, stats, categories, panels, date, venue, tagline } = EDITION2025;
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    const v = videoRef.current;
+    if (!v) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      v.removeAttribute("autoplay");
+      v.pause();
+    } else {
+      v.play().catch(() => {});
+    }
+  }, []);
 
   return (
     <main id="main">
-      {/* Theme hero — matches the 3.0 key visual */}
+      {/* Theme hero with video background */}
       <section className={styles.hero}>
+        <video
+          ref={videoRef}
+          className={styles.heroBg}
+          autoPlay muted loop playsInline preload="metadata"
+          poster="/img/hero-poster.jpg"
+          disablePictureInPicture tabIndex="-1" aria-hidden="true"
+        >
+          <source src="/video/aftermovie-web.mp4?v=2" type="video/mp4" />
+        </video>
         <div className={styles.glow} aria-hidden="true"></div>
         <div className={styles.heroGrid} aria-hidden="true"></div>
         <div className={cx("container", styles.heroContent)}>
@@ -46,7 +68,7 @@ export default function Edition30({ onOpenRegister }) {
             <div className={styles.head}>
               <span className={styles.eyebrow}>What happened</span>
               <h2 className={styles.title}>Four pillars of the edition</h2>
-              <p className={styles.sub}>Every space of MeetUp Pro 3.0 was built to turn encounters into opportunities.</p>
+              <p className={styles.sub}>Every space of MeetUp Pro 2025 was built to turn encounters into opportunities.</p>
             </div>
           </Reveal>
           <div className={styles.catGrid}>
@@ -69,7 +91,7 @@ export default function Edition30({ onOpenRegister }) {
         <div className="container">
           <Reveal>
             <div className={styles.head}>
-              <span className={styles.eyebrow}>On the 3.0 stage</span>
+              <span className={styles.eyebrow}>On the 2025 stage</span>
               <h2 className={styles.title}>The discussion panels</h2>
               <p className={styles.sub}>Four panels bringing together founders, investors, corporates and creators around the region’s real challenges.</p>
             </div>
@@ -104,17 +126,11 @@ export default function Edition30({ onOpenRegister }) {
               </Reveal>
             ))}
           </div>
-
-          <Reveal className={styles.linkRow}>
-            <Button as="a" variant="ghost" href="https://meetuppro.com/" target="_blank" rel="noopener">
-              Relive MeetUp Pro 3.0 on meetuppro.com <ArrowRight />
-            </Button>
-            <Button variant="primary" onClick={onOpenRegister}>
-              Register for 2026 <ArrowRight />
-            </Button>
-          </Reveal>
         </div>
       </section>
+
+      {/* Gallery */}
+      <Gallery />
     </main>
   );
 }

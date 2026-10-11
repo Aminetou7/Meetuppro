@@ -1,0 +1,13 @@
+{
+  "name": "meetup-pro",
+  "version": "1.0.0",
+  "private": true,
+  "description": "MeetUp Pro 2026 & Editions",
+  "scripts": {
+    "dev": "npm --prefix app/client run dev",
+    "build": "npm --prefix app/client run build",
+    "preview": "npm --prefix app/client run preview",
+    "server": "npm --prefix app/server start",
+    "start": "npm --prefix app/client run dev"
+  }
+}

@@ -98,9 +98,13 @@
 
   /* ---------- Speakers rail ---------- */
   const rail = document.getElementById("speaker-rail");
-  const step = () => rail.querySelector(".speaker-card").offsetWidth + 20;
-  document.getElementById("rail-prev").addEventListener("click", () => rail.scrollBy({ left: -step(), behavior: "smooth" }));
-  document.getElementById("rail-next").addEventListener("click", () => rail.scrollBy({ left: step(), behavior: "smooth" }));
+  const railPrev = document.getElementById("rail-prev");
+  const railNext = document.getElementById("rail-next");
+  if (rail && railPrev && railNext) {
+    const step = () => rail.querySelector(".speaker-card")?.offsetWidth + 20 || 300;
+    railPrev.addEventListener("click", () => rail.scrollBy({ left: -step(), behavior: "smooth" }));
+    railNext.addEventListener("click", () => rail.scrollBy({ left: step(), behavior: "smooth" }));
+  }
 
   /* ---------- FAQ accordion ---------- */
   document.querySelectorAll(".acc-trigger").forEach((btn) => {
@@ -188,11 +192,9 @@
   modal.querySelectorAll("[data-close-modal]").forEach((el) => el.addEventListener("click", closeModal));
   partnerModal.querySelectorAll("[data-close-partner]").forEach((el) => el.addEventListener("click", closePartnerModal));
   chooseModal.querySelectorAll("[data-close-choose]").forEach((el) => el.addEventListener("click", closeChooseModal));
-  chooseModal.querySelector('[data-choose="professional"]').addEventListener("click", () => {
-    closeChooseModal();
-    openModal();
-  });
-  chooseModal.querySelector('[data-choose="youth"]').addEventListener("click", () => closeChooseModal());
+  /* Professional pass card is now a direct <a> link — no JS handler needed */
+  const youthChooseBtn = chooseModal.querySelector('[data-choose="youth"]');
+  if (youthChooseBtn) youthChooseBtn.addEventListener("click", () => closeChooseModal());
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") {
       if (modal.classList.contains("open")) closeModal();
@@ -235,3 +237,46 @@
   /* ---------- Footer year ---------- */
   document.getElementById("year").textContent = new Date().getFullYear();
 })();
+
+/* ============================================================
+   LIGHTBOX — Photo Gallery (meetuppro-2025.html)
+   ============================================================ */
+(function () {
+  const lightbox    = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightbox-img");
+  if (!lightbox || !lightboxImg) return; // Not on 2025 page
+
+  let items = [];
+  let currentIndex = 0;
+
+  window.openLightbox = function (el) {
+    items = Array.from(document.querySelectorAll(".gallery-item img"));
+    const img = el.querySelector("img");
+    currentIndex = items.indexOf(img);
+    lightboxImg.src = img.src;
+    lightboxImg.alt = img.alt;
+    lightbox.classList.add("open");
+    document.body.classList.add("locked");
+  };
+
+  window.closeLightbox = function () {
+    lightbox.classList.remove("open");
+    document.body.classList.remove("locked");
+    lightboxImg.src = "";
+  };
+
+  window.shiftLightbox = function (dir) {
+    currentIndex = (currentIndex + dir + items.length) % items.length;
+    const img = items[currentIndex];
+    lightboxImg.src = img.src;
+    lightboxImg.alt = img.alt;
+  };
+
+  document.addEventListener("keydown", (e) => {
+    if (!lightbox.classList.contains("open")) return;
+    if (e.key === "Escape")       closeLightbox();
+    if (e.key === "ArrowRight")   shiftLightbox(1);
+    if (e.key === "ArrowLeft")    shiftLightbox(-1);
+  });
+})();
+

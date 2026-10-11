@@ -4,11 +4,12 @@
   min-height: 82svh;
   display: flex; align-items: center; justify-content: center;
   padding: calc(var(--header-h) + 60px) 0 90px;
-  background:
-    radial-gradient(ellipse at 50% 30%, rgba(15, 205, 243, 0.22), transparent 60%),
-    radial-gradient(ellipse at 20% 80%, rgba(29, 225, 35, 0.14), transparent 55%),
-    radial-gradient(ellipse at 82% 72%, rgba(26, 219, 168, 0.16), transparent 55%),
-    #070b1e;
+  background: #070b1e;
+}
+.heroBg {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; z-index: 0; opacity: 0.45;
+  pointer-events: none; user-select: none;
 }
 .glow {
   position: absolute; inset: 0; z-index: 0;

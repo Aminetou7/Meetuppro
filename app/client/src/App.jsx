@@ -9,8 +9,7 @@ import RegisterModal from "./components/RegisterModal/RegisterModal.jsx";
 import PartnerModal from "./components/PartnerModal/PartnerModal.jsx";
 import ChooseModal from "./components/ChooseModal/ChooseModal.jsx";
 import Home from "./pages/Home.jsx";
-import Edition30 from "./pages/Edition30.jsx";
-import Edition20 from "./pages/Edition20.jsx";
+import Edition2025 from "./pages/Edition2025.jsx";
 
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -41,8 +40,9 @@ export default function App() {
 
       <Routes>
         <Route path="/" element={<Home onOpenRegister={() => openModal("register")} onOpenPartner={() => openModal("partner")} />} />
-        <Route path="/editions/3.0" element={<Edition30 onOpenRegister={() => openModal("register")} />} />
-        <Route path="/editions/2.0" element={<Edition20 onOpenRegister={() => openModal("register")} />} />
+        <Route path="/editions/2025" element={<Edition2025 onOpenRegister={() => openModal("register")} />} />
+        <Route path="/meetuppro-2025" element={<Edition2025 onOpenRegister={() => openModal("register")} />} />
+        <Route path="/editions/3.0" element={<Edition2025 onOpenRegister={() => openModal("register")} />} />
         <Route path="*" element={<Home onOpenRegister={() => openModal("register")} onOpenPartner={() => openModal("partner")} />} />
       </Routes>
 
@@ -53,7 +53,6 @@ export default function App() {
       <ChooseModal
         open={modal === "choose"}
         onClose={closeModal}
-        onChooseProfessional={() => setModal("register")}
       />
     </>
   );
