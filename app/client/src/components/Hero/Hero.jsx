@@ -34,7 +34,7 @@ export default function Hero({ onOpenRegister }) {
       <div className={styles.grid} aria-hidden="true"></div>
 
       <div className={`container ${styles.content}`}>
-        <Reveal as="span" className={styles.badge}>31 October 2026 · Mouradi Club Kantaoui, Sousse · Registration open</Reveal>
+        <Reveal as="span" className={styles.badge}>31 October 2026 · Orient Palace, Sousse · Registration open</Reveal>
         <Reveal as="img" delay={90} src="/img/logo.png" alt="MeetUp Pro 2026 — Connecting minds, shaping futures" className={styles.logo} />
         <Reveal as="p" delay={180} className={styles.lead}>
           Connecting the Sahel to strengthen the Tunisian entrepreneurial ecosystem —

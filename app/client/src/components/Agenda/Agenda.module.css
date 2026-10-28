@@ -1124,3 +1124,102 @@
   }
 }
 
+
+/* ============================================================
+   Draft replica grid (single unified schedule table)
+   ============================================================ */
+.draftGrid {
+  display: grid;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.dCell {
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 8px 10px;
+  text-align: center;
+}
+
+.dHead {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  min-height: 38px;
+}
+
+.dTime {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--line);
+  flex-direction: column;
+  gap: 2px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.dCard h4,
+.dParallel h4 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.dCard h4 { font-size: 14px; color: #fff; }
+.dCard { flex-direction: column; gap: 2px; }
+
+.dGold { background: #d9a514; }
+.dBlue { background: #2f6fd0; }
+.dGreen { background: #7dc24a; }
+.dGreen h4 { color: #10321a; }
+.dDark { background: #3a4150; }
+
+.dParallel {
+  flex-direction: column;
+  gap: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+.dParallel span { font-size: 11.5px; font-weight: 600; opacity: 0.85; }
+
+.dFair { background: #9fc3e8; }
+.dFair h4 { color: #12365e; font-size: 17px; }
+.dFair span { color: #12365e; }
+
+.dNetworking { background: #3a4150; }
+.dNetworking h4 { font-size: 14px; color: #fff; }
+
+.dWorkshop { background: #35b8c0; }
+.dWorkshop h4 { color: #06343a; font-size: 16px; }
+.dWorkshop span { color: #06343a; }
+
+.dJobFair { background: #a9cdec; }
+.dJobFair h4 { color: #12365e; font-size: 17px; }
+.dJobFair span { color: #12365e; }
+
+.dSpeed { background: #f2c94c; }
+.dSpeed h4 {
+  color: #4a3608;
+  font-size: 13px;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  letter-spacing: 0.06em;
+}
+.dSpeed span { display: none; }
+
+@media (max-width: 900px) {
+  .draftGrid { grid-template-columns: 90px 1fr !important; }
+  .dCell { grid-row: auto !important; }
+  .dTime { grid-column: 1 / 2 !important; }
+  .dCard, .dHead { grid-column: 2 / -1 !important; }
+  .dParallel { grid-column: 1 / -1 !important; min-height: 70px; }
+  .dHead:nth-child(3) { display: none; }
+  .dSpeed h4 { writing-mode: horizontal-tb; transform: none; }
+  .dSpeed span { display: block; }
+}

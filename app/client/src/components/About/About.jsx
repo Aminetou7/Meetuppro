@@ -2,7 +2,7 @@ import styles from "./About.module.css";
 import SectionHead from "../SectionHead/SectionHead.jsx";
 import Reveal from "../Reveal/Reveal.jsx";
 import Chips from "../Chips/Chips.jsx";
-import { Check, CameraIcon } from "../Icons.jsx";
+import { Check } from "../Icons.jsx";
 import { SECTORS, ABOUT_CHECKS } from "../../data/content.js";
 
 export default function About() {
@@ -29,19 +29,6 @@ export default function About() {
             ))}
           </ul>
           <Chips items={SECTORS} className={styles.chipsWrap} />
-        </Reveal>
-
-        <Reveal className={styles.media}>
-          <div className={styles.frame}>
-            <div className={styles.placeholder}>
-              <CameraIcon />
-              <span>Official visuals coming soon</span>
-            </div>
-          </div>
-          <div className={styles.floatCard}>
-            <strong>2 passes</strong>
-            <span>Professional &amp; Youth</span>
-          </div>
         </Reveal>
       </div>
     </section>

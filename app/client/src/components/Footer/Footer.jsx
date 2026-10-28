@@ -60,7 +60,7 @@ export default function Footer({ onOpenRegister }) {
               </li>
             ))}
           </ul>
-          <p className={styles.venue}>31 Oct 2026 — Mouradi Club Kantaoui, Sousse</p>
+          <p className={styles.venue}>31 Oct 2026 — Orient Palace, Sousse</p>
         </div>
       </div>
 

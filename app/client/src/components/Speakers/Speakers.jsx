@@ -140,13 +140,6 @@ export default function Speakers() {
               <h3 className={styles.name}>{s.name}</h3>
               <p className={styles.role}>{s.role}</p>
               <p className={styles.company}>{s.company}</p>
-
-              <p className={styles.bio}>{s.bio}</p>
-
-              <div className={styles.panelFooter}>
-                <span className={styles.panelFooterLabel}>Contribution:</span>
-                <span className={styles.panelFooterTitle}>{s.panelTitle}</span>
-              </div>
             </article>
           ))}
         </div>
