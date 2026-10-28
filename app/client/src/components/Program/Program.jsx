@@ -10,8 +10,8 @@ export default function Program() {
         <Reveal>
           <SectionHead
             eyebrow="Program"
-            title="Five panels, one conversation"
-            sub="The 2026 discussion panels — from sustainable growth to AI, careers and the Sahel’s entrepreneurial future."
+            title="Four panels, one conversation"
+            sub="The 2026 discussion panels — from sustainable growth to AI, innovation and the Sahel’s entrepreneurial future."
           />
         </Reveal>
         <div className={styles.panels}>
@@ -23,12 +23,32 @@ export default function Program() {
               delay={i * 90}
               style={{ "--accent": p.accent }}
             >
-              <span className={styles.day}>Panel {p.n}</span>
+              <div className={styles.topRow}>
+                <span className={styles.day}>Panel {p.n}</span>
+                <span className={styles.timeBadge}>{p.time}</span>
+              </div>
               <h3>{p.title}</h3>
               <div className={styles.tags}>
                 {p.tags.map((t) => <span key={t}>{t}</span>)}
               </div>
-              <span className={styles.note}>Speakers &amp; time slot coming soon</span>
+
+              {p.speakers && p.speakers.length > 0 && (
+                <div className={styles.speakersList}>
+                  <span className={styles.speakersTitle}>Confirmed Speakers:</span>
+                  <div className={styles.speakerPills}>
+                    {p.speakers.map((spk) => (
+                      <span key={spk} className={styles.speakerPill}>
+                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                          <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                        </svg>
+                        {spk}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              <span className={styles.note}>{p.time} &bull; Main Stage</span>
             </Reveal>
           ))}
         </div>

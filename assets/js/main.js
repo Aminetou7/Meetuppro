@@ -96,14 +96,103 @@
   );
   counters.forEach((c) => counterObserver.observe(c));
 
-  /* ---------- Speakers rail ---------- */
+  /* ---------- Speakers rail & auto-scroll ---------- */
   const rail = document.getElementById("speaker-rail");
   const railPrev = document.getElementById("rail-prev");
   const railNext = document.getElementById("rail-next");
-  if (rail && railPrev && railNext) {
-    const step = () => rail.querySelector(".speaker-card")?.offsetWidth + 20 || 300;
-    railPrev.addEventListener("click", () => rail.scrollBy({ left: -step(), behavior: "smooth" }));
-    railNext.addEventListener("click", () => rail.scrollBy({ left: step(), behavior: "smooth" }));
+  const railAuto = document.getElementById("rail-auto");
+
+  if (rail) {
+    let isAutoScrolling = true;
+    let isHovered = false;
+    let autoScrollTimer = null;
+    const SCROLL_INTERVAL = 3000; // 3 seconds between slides
+
+    const getStep = () => {
+      const card = rail.querySelector(".speaker-card");
+      return card ? card.offsetWidth + 20 : 280;
+    };
+
+    const doNext = () => {
+      const maxScroll = rail.scrollWidth - rail.clientWidth;
+      if (rail.scrollLeft >= maxScroll - 20) {
+        rail.scrollTo({ left: 0, behavior: "smooth" });
+      } else {
+        rail.scrollBy({ left: getStep(), behavior: "smooth" });
+      }
+    };
+
+    const doPrev = () => {
+      if (rail.scrollLeft <= 20) {
+        rail.scrollTo({ left: rail.scrollWidth, behavior: "smooth" });
+      } else {
+        rail.scrollBy({ left: -getStep(), behavior: "smooth" });
+      }
+    };
+
+    const startTimer = () => {
+      stopTimer();
+      if (!isAutoScrolling) return;
+      autoScrollTimer = setInterval(() => {
+        if (!isHovered && isAutoScrolling) {
+          doNext();
+        }
+      }, SCROLL_INTERVAL);
+    };
+
+    const stopTimer = () => {
+      if (autoScrollTimer) {
+        clearInterval(autoScrollTimer);
+        autoScrollTimer = null;
+      }
+    };
+
+    if (railPrev) {
+      railPrev.addEventListener("click", () => {
+        doPrev();
+        startTimer();
+      });
+    }
+
+    if (railNext) {
+      railNext.addEventListener("click", () => {
+        doNext();
+        startTimer();
+      });
+    }
+
+    if (railAuto) {
+      const updateButton = () => {
+        railAuto.classList.toggle("paused", !isAutoScrolling);
+        railAuto.setAttribute("aria-pressed", String(isAutoScrolling));
+        const text = railAuto.querySelector(".rail-auto-text");
+        if (text) text.textContent = isAutoScrolling ? "Auto" : "Paused";
+        railAuto.title = isAutoScrolling ? "Click to pause auto-scroll" : "Click to resume auto-scroll";
+      };
+
+      railAuto.addEventListener("click", () => {
+        isAutoScrolling = !isAutoScrolling;
+        updateButton();
+        if (isAutoScrolling) {
+          doNext();
+          startTimer();
+        } else {
+          stopTimer();
+        }
+      });
+      updateButton();
+    }
+
+    // Pause auto-scroll on hover or touch so user can comfortably read
+    rail.addEventListener("mouseenter", () => { isHovered = true; }, { passive: true });
+    rail.addEventListener("mouseleave", () => { isHovered = false; }, { passive: true });
+    rail.addEventListener("touchstart", () => { isHovered = true; }, { passive: true });
+    rail.addEventListener("touchend", () => {
+      setTimeout(() => { isHovered = false; }, 1800);
+    }, { passive: true });
+
+    // Begin auto-scrolling
+    startTimer();
   }
 
   /* ---------- FAQ accordion ---------- */
