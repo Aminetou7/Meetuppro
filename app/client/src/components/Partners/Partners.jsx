@@ -3,13 +3,13 @@ import SectionHead from "../SectionHead/SectionHead.jsx";
 import Reveal from "../Reveal/Reveal.jsx";
 import { PARTNERS, MEDIA_PARTNERS } from "../../data/partners.js";
 
-const Group = ({ title, items }) => (
+const Group = ({ title, items, dir = "" }) => (
   <Reveal className={styles.group}>
     <h3>{title}</h3>
     <div className={styles.grid}>
       {items.map((p) => (
         <div className={styles.tile} key={p.src}>
-          <img src={`/img/partners/${p.src}`} alt={p.alt} loading="lazy" />
+          <img src={`/img/partners/${dir}${p.src}`} alt={p.alt} loading="lazy" />
         </div>
       ))}
     </div>
@@ -28,7 +28,7 @@ export default function Partners({ onOpenPartner }) {
           />
         </Reveal>
         <Group title="Partners" items={PARTNERS} />
-        <Group title="Media partners" items={MEDIA_PARTNERS} />
+        <Group title="Media partners" items={MEDIA_PARTNERS} dir="media-partners/" />
       </div>
     </section>
   );
