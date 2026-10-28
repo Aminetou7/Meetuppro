@@ -6,6 +6,7 @@ import Experience from "../components/Experience/Experience.jsx";
 import Program from "../components/Program/Program.jsx";
 import Agenda from "../components/Agenda/Agenda.jsx";
 import Speakers from "../components/Speakers/Speakers.jsx";
+import Venue from "../components/Venue/Venue.jsx";
 import Partners from "../components/Partners/Partners.jsx";
 import Faq from "../components/FAQ/FAQ.jsx";
 import FinalCTA from "../components/FinalCTA/FinalCTA.jsx";
@@ -21,6 +22,7 @@ export default function Home({ onOpenRegister, onOpenPartner }) {
       <Program />
       <Agenda />
       <Speakers />
+      <Venue />
       <Partners onOpenPartner={onOpenPartner} />
       <Faq />
       <FinalCTA onOpenRegister={onOpenRegister} />
