@@ -26,8 +26,8 @@
 
 .brand { flex-shrink: 1; min-width: 0; display: inline-flex; transition: filter 0.25s, transform 0.25s; }
 .brand:hover { filter: drop-shadow(0 6px 22px rgba(26, 219, 168, 0.45)); transform: translateY(-1px); }
-.brandLogo { width: 216px; max-width: 100%; height: auto; transition: width 0.3s; }
-.scrolled .brandLogo { width: 176px; }
+.brandLogo { width: 280px; max-width: 100%; height: auto; transition: width 0.3s; }
+.scrolled .brandLogo { width: 220px; }
 
 .mainNav ul { display: flex; align-items: center; gap: 6px; list-style: none; }
 .mainNav li { display: flex; align-items: center; }
