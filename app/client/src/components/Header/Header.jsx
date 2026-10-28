@@ -117,7 +117,7 @@ export default function Header({ menuOpen, onToggleMenu, onOpenPartner, onOpenCh
         </nav>
 
         <div className={styles.headerActions}>
-          <Button as="button" variant="ghost" size="sm" className={styles.headerBtn} onClick={onOpenPartner}>Exhibit at MeetUp Pro</Button>
+          <Button as="button" variant="ghost" size="sm" className={`${styles.headerBtn} ${styles.partnerBtn}`} onClick={onOpenPartner}>Exhibit at MeetUp Pro</Button>
           <Button as="button" variant="primary" size="sm" className={styles.headerBtn} onClick={onOpenChoose}>Register</Button>
           <button
             className={cx(styles.burger, menuOpen && styles.burgerOpen)}

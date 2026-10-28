@@ -22,12 +22,20 @@
   pointer-events: none;
 }
 
-.headerInner { display: flex; align-items: center; justify-content: space-between; gap: 24px; width: min(1320px, 94%); }
+.headerInner { display: flex; align-items: center; justify-content: space-between; gap: 24px; width: min(1560px, 95%); margin: 0 auto; }
 
 .brand { flex-shrink: 0; display: inline-flex; transition: filter 0.25s, transform 0.25s; }
 .brand:hover { filter: drop-shadow(0 6px 22px rgba(26, 219, 168, 0.45)); transform: translateY(-1px); }
 .brandLogo { width: 280px; max-width: 100%; height: auto; transition: width 0.3s; }
 .scrolled .brandLogo { width: 220px; }
+@media (max-width: 1600px) {
+  .brandLogo { width: 240px; }
+  .scrolled .brandLogo { width: 200px; }
+  .mainNav a { padding: 9px 10px; }
+}
+@media (max-width: 1400px) {
+  .partnerBtn { display: none; }
+}
 @media (max-width: 1200px) {
   .brandLogo { width: 210px; }
   .scrolled .brandLogo { width: 180px; }
