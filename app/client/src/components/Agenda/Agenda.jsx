@@ -99,7 +99,9 @@ export default function Agenda() {
                 <span>08:30 AM</span><span>09:15 AM</span>
               </div>
               <div className={`${styles.dCell} ${styles.dCard} ${styles.dGold}`} style={cell("2 / 6", "2 / 3")}>
+                <span className={styles.dPill}>Check-In</span>
                 <h4>Check-In ( B2B )</h4>
+                <span className={styles.dSub}>Badge collection &amp; welcome coffee for corporate delegations</span>
               </div>
 
               {/* 09:15 – 09:50 · Opening Ceremony */}
@@ -107,7 +109,9 @@ export default function Agenda() {
                 <span>09:15 AM</span><span>09:50 AM</span>
               </div>
               <div className={`${styles.dCell} ${styles.dCard} ${styles.dBlue}`} style={cell("2 / 6", "3 / 4")}>
+                <span className={styles.dPill}>Opening</span>
                 <h4>Opening Ceremony + Main Partners Keynotes</h4>
+                <span className={styles.dSub}>Institutional welcome addresses &amp; headline partner keynotes</span>
               </div>
 
               {/* 09:55 – 10:55 · Panel 1  |  B2B Business Fair (09:55 – 12:10) */}
@@ -115,11 +119,14 @@ export default function Agenda() {
                 <span>09:55 AM</span><span>10:55 AM</span>
               </div>
               <div className={`${styles.dCell} ${styles.dCard} ${styles.dBlue}`} style={cell("2 / 3", "4 / 5")}>
-                <h4>Panel 1: Growing Without Losing Your Way &mdash; The Keys to Sustainable SME Growth</h4>
+                <span className={styles.dPill}>Panel 1</span>
+                <h4>Growing Without Losing Your Way &mdash; The Keys to Sustainable SME Growth</h4>
+                <span className={styles.dSub}>Hamza Fatnassi</span>
               </div>
               <div className={`${styles.dCell} ${styles.dParallel} ${styles.dFair}`} style={cell("3 / 6", "4 / 7")}>
+                <span className={styles.dPill}>Exhibition</span>
                 <h4>B2B Business Fair</h4>
-                <span>09:55 AM &ndash; 12:10 PM</span>
+                <span className={styles.dSub}>09:55 AM &ndash; 12:10 PM</span>
               </div>
 
               {/* 10:55 – 11:05 · Pause */}
@@ -127,7 +134,9 @@ export default function Agenda() {
                 <span>10:55 AM</span><span>11:05 AM</span>
               </div>
               <div className={`${styles.dCell} ${styles.dCard} ${styles.dGreen}`} style={cell("2 / 3", "5 / 6")}>
+                <span className={styles.dPill}>Break</span>
                 <h4>Pause</h4>
+                <span className={styles.dSub}>Coffee &amp; informal networking</span>
               </div>
 
               {/* 11:10 – 12:10 · Panel 2 */}
@@ -135,7 +144,9 @@ export default function Agenda() {
                 <span>11:10 AM</span><span>12:10 PM</span>
               </div>
               <div className={`${styles.dCell} ${styles.dCard} ${styles.dBlue}`} style={cell("2 / 3", "6 / 7")}>
-                <h4>Panel 2: Turning Challenges into Opportunities &mdash; Startup &times; Corporate Collaboration</h4>
+                <span className={styles.dPill}>Panel 2</span>
+                <h4>Turning Challenges into Opportunities &mdash; Startup &times; Corporate Collaboration</h4>
+                <span className={styles.dSub}>Ghassen Dridi &bull; Randa Touati &bull; Nizar Somrani</span>
               </div>
 
               {/* 12:15 – 13:00 · Check-In Youth | Networking Break */}
@@ -143,10 +154,14 @@ export default function Agenda() {
                 <span>12:15 PM</span><span>01:00 PM</span>
               </div>
               <div className={`${styles.dCell} ${styles.dCard} ${styles.dGold}`} style={cell("2 / 3", "7 / 8")}>
+                <span className={styles.dPill}>Check-In</span>
                 <h4>Check-In Youth</h4>
+                <span className={styles.dSub}>Students, graduates &amp; young talent</span>
               </div>
               <div className={`${styles.dCell} ${styles.dParallel} ${styles.dNetworking}`} style={cell("3 / 6", "7 / 8")}>
+                <span className={styles.dPill}>Networking</span>
                 <h4>Networking Break &#9749;</h4>
+                <span className={styles.dSub}>Midday lunch &amp; open business networking</span>
               </div>
 
               {/* 13:00 – 13:30 · Opening for Youth | Workshop / JOB FAIR / SPEED RECRUITING begin */}
@@ -154,19 +169,23 @@ export default function Agenda() {
                 <span>01:00 PM</span><span>01:30 PM</span>
               </div>
               <div className={`${styles.dCell} ${styles.dCard} ${styles.dBlue}`} style={cell("2 / 3", "8 / 9")}>
+                <span className={styles.dPill}>Opening</span>
                 <h4>Opening for Youth</h4>
+                <span className={styles.dSub}>Job Fair &amp; Speed Recruiting introduction</span>
               </div>
               <div className={`${styles.dCell} ${styles.dParallel} ${styles.dWorkshop}`} style={cell("3 / 4", "8 / 12")}>
+                <span className={styles.dPill}>Hands-On</span>
                 <h4>Workshop</h4>
-                <span>01:00 &ndash; 04:00</span>
+                <span className={styles.dSub}>01:00 &ndash; 04:00</span>
               </div>
               <div className={`${styles.dCell} ${styles.dParallel} ${styles.dJobFair}`} style={cell("4 / 5", "8 / 12")}>
+                <span className={styles.dPill}>Recruitment</span>
                 <h4>JOB FAIR</h4>
-                <span>01:00 &ndash; 04:00</span>
+                <span className={styles.dSub}>01:00 &ndash; 04:00</span>
               </div>
               <div className={`${styles.dCell} ${styles.dParallel} ${styles.dSpeed}`} style={cell("5 / 6", "8 / 12")}>
                 <h4>SPEED RECRUITING</h4>
-                <span>01:00 &ndash; 04:30</span>
+                <span className={styles.dSub}>01:00 &ndash; 04:30</span>
               </div>
 
               {/* 13:40 – 14:40 · Panel 3 */}
@@ -174,7 +193,9 @@ export default function Agenda() {
                 <span>01:40 PM</span><span>02:40 PM</span>
               </div>
               <div className={`${styles.dCell} ${styles.dCard} ${styles.dBlue}`} style={cell("2 / 3", "9 / 10")}>
-                <h4>Panel 3: Entrepreneurship in the Sahel &mdash; From Idea to First Customer</h4>
+                <span className={styles.dPill}>Panel 3</span>
+                <h4>Entrepreneurship in the Sahel &mdash; From Idea to First Customer</h4>
+                <span className={styles.dSub}>Amine Rekhis &bull; A&iuml;da Bouraoui</span>
               </div>
 
               {/* 14:45 – 15:00 · Pause */}
@@ -182,7 +203,9 @@ export default function Agenda() {
                 <span>02:45 PM</span><span>03:00 PM</span>
               </div>
               <div className={`${styles.dCell} ${styles.dCard} ${styles.dGreen}`} style={cell("2 / 3", "10 / 11")}>
+                <span className={styles.dPill}>Break</span>
                 <h4>Pause</h4>
+                <span className={styles.dSub}>Coffee &amp; ongoing booth interviews</span>
               </div>
 
               {/* 15:00 – 16:00 · Panel 4 */}
@@ -190,7 +213,9 @@ export default function Agenda() {
                 <span>03:00 PM</span><span>04:00 PM</span>
               </div>
               <div className={`${styles.dCell} ${styles.dCard} ${styles.dBlue}`} style={cell("2 / 3", "11 / 12")}>
-                <h4>Panel 4: AI and the Future of Work &mdash; Threat or Career Accelerator?</h4>
+                <span className={styles.dPill}>Panel 4</span>
+                <h4>AI and the Future of Work &mdash; Threat or Career Accelerator?</h4>
+                <span className={styles.dSub}>Marwen Essalah &bull; Manel Ghanmi</span>
               </div>
 
               {/* 16:10 – 16:30 · Closing */}
@@ -198,7 +223,9 @@ export default function Agenda() {
                 <span>04:10 PM</span><span>04:30 PM</span>
               </div>
               <div className={`${styles.dCell} ${styles.dCard} ${styles.dDark}`} style={cell("2 / 6", "12 / 13")}>
+                <span className={styles.dPill}>Closing</span>
                 <h4>Closing</h4>
+                <span className={styles.dSub}>Panel synthesis &amp; partner acknowledgments</span>
               </div>
             </div>
           </Reveal>
