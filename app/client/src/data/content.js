@@ -3,6 +3,7 @@ export const NAV_LINKS = [
   { href: "#experience", label: "Experience" },
   { href: "#program", label: "Program" },
   { href: "#agenda", label: "Agenda" },
+  { href: "#speed-recruiting", label: "Speed Recruiting" },
   { href: "#speakers", label: "Speakers" },
   { href: "#venue", label: "Venue" },
   { href: "#partners", label: "Partners" },
@@ -134,7 +135,7 @@ export const AGENDA_PARALLEL_TRACKS = [
   {
     id: "speed-recruiting",
     title: "SPEED RECRUITING",
-    timeSlot: "01:00 PM – 04:30 PM",
+    timeSlot: "01:00 PM – 04:00 PM",
     description: "Fast-track 7-minute 1-on-1 interview sessions, direct talent pitches, and express CV drop-offs.",
     badge: "Recruitment Sprint",
     accent: "#F59E0B",
@@ -278,7 +279,7 @@ export const AGENDA_ITEMS = [
     session: "afternoon",
     parallel: {
       name: "Workshop, JOB FAIR & SPEED RECRUITING",
-      time: "01:00 PM – 04:30 PM",
+      time: "01:00 PM – 04:10 PM",
       accent: "#0FCDF3",
     },
   },
@@ -300,7 +301,7 @@ export const AGENDA_ITEMS = [
     session: "afternoon",
     parallel: {
       name: "Workshop, JOB FAIR & SPEED RECRUITING",
-      time: "01:00 PM – 04:30 PM",
+      time: "01:00 PM – 04:10 PM",
       accent: "#0FCDF3",
     },
   },
@@ -319,7 +320,7 @@ export const AGENDA_ITEMS = [
     session: "afternoon",
     parallel: {
       name: "Workshop, JOB FAIR & SPEED RECRUITING",
-      time: "01:00 PM – 04:30 PM",
+      time: "01:00 PM – 04:10 PM",
       accent: "#0FCDF3",
     },
   },
@@ -341,7 +342,7 @@ export const AGENDA_ITEMS = [
     session: "afternoon",
     parallel: {
       name: "Workshop, JOB FAIR & SPEED RECRUITING",
-      time: "01:00 PM – 04:30 PM",
+      time: "01:00 PM – 04:10 PM",
       accent: "#0FCDF3",
     },
   },
@@ -361,18 +362,101 @@ export const AGENDA_ITEMS = [
   },
 ];
 
+export const SPEED_RECRUITING = {
+  time: "01:00 PM – 04:00 PM",
+  intro: "Companies recruiting at MeetUp Pro hold first interviews on site, between two panels. Bring your CV — and send it ahead so a slot is kept for you.",
+  companies: [
+    {
+      id: "droppex",
+      name: "Droppex",
+      logo: "/img/partners/dropex.png",
+      sector: "Transport & Logistics",
+      accent: "#0FCDF3",
+      hiringNote: "Interviews held during MeetUp Pro 2026",
+      email: "recrutement@droppex.com",
+      applyNote:
+        "Envoyez votre candidature (CV et lettre de motivation) à l’adresse ci-dessus en précisant impérativement l’intitulé exact du poste en objet — exemple : « Candidature – Agent Service Client ».",
+      roles: [
+        {
+          id: "agent-financier",
+          title: "Agent Financier / Gestionnaire Trésorerie & Facturation",
+          summary:
+            "Rattaché(e) à la Direction Financière, vous assurez la gestion quotidienne des flux financiers liés aux opérations de livraison, en particulier le suivi des encaissements contre remboursement (COD) et la facturation client.",
+          level: "Bac+3 · Comptabilité, Finance, Gestion",
+          experience: "1 à 2 ans",
+          missions: [
+            "Gestion du Cash On Delivery : contrôler, pointer et réconcilier quotidiennement les encaissements collectés par les livreurs et les hubs régionaux.",
+            "Rapprochement bancaire : vérifier la concordance entre les flux physiques, les relevés de comptes et le système d’information interne.",
+            "Facturation & reversements : émettre les factures des prestations de livraison et préparer les états de reversement des e-commerçants partenaires.",
+            "Recouvrement : effectuer les relances auprès des clients en retard de paiement et traiter les écarts de trésorerie.",
+            "Reporting : établir les tableaux de bord hebdomadaires et mensuels sur l’état de la trésorerie et les encours.",
+          ],
+          profile: [
+            "Formation Bac+3 en Comptabilité, Finance, Gestion ou équivalent.",
+            "1 à 2 ans sur un poste similaire — une expérience en logistique, distribution ou retail est un atout majeur.",
+            "Maîtrise avancée d’Excel (formules complexes, tableaux croisés dynamiques) et aisance avec les progiciels de gestion (ERP).",
+            "Rigueur absolue, organisation, sens aigu du détail, discrétion et intégrité.",
+          ],
+        },
+        {
+          id: "agent-service-client",
+          title: "Agent Service Client / Chargé(e) d’Assistance Utilisateurs",
+          summary:
+            "Au cœur de l’expérience Droppex, vous êtes le point de contact privilégié des clients e-commerçants et des destinataires finaux, pour une prise en charge rapide, fluide et qualitative des requêtes opérationnelles.",
+          level: "Bac+2 · Relation Client, Langues Appliquées, Commerce",
+          experience: "Première expérience",
+          missions: [
+            "Traitement multicanal : répondre aux appels, e-mails, tickets et messages des réseaux sociaux concernant l’état des colis.",
+            "Suivi des expéditions : tracer les commandes en transit, identifier les blocages logistiques et coordonner la réexpédition avec les livreurs et répartiteurs.",
+            "Gestion des réclamations : prendre en charge les litiges (colis endommagés, contestations, retours) avec diplomatie, dans le respect des délais convenus (SLA).",
+            "Amélioration continue : faire remonter les incidents récurrents aux équipes d’exploitation pour optimiser les processus de livraison.",
+          ],
+          profile: [
+            "Formation Bac+2 minimum en Relation Client, Langues Appliquées, Commerce ou Communication.",
+            "Première expérience réussie en centre d’appels, SAV ou support client, idéalement dans le e-commerce ou le transport.",
+            "Excellente élocution et communication écrite et orale en français et en arabe.",
+            "Maîtrise des outils de communication inter-équipes (Slack) et du CRM interne.",
+            "Empathie, gestion du stress, patience, réactivité et sens aigu du service.",
+          ],
+        },
+        {
+          id: "agent-commercial",
+          title: "Agent Commercial / Chargé(e) de Développement B2B",
+          summary:
+            "Rattaché(e) à la Direction Commerciale, vous participez à l’acquisition de nouveaux comptes (e-commerçants, marques, distributeurs) et au développement du chiffre d’affaires sur votre secteur géographique.",
+          level: "Bac+3 / Bac+5 · Commerce, Vente, Marketing",
+          experience: "2 ans en prospection B2B",
+          missions: [
+            "Prospection active : identifier et cibler les e-commerçants, PME et grandes enseignes ayant des besoins récurrents en livraison express.",
+            "Négociation & closing : présenter les offres logistiques Droppex, élaborer des propositions adaptées et négocier les grilles tarifaires jusqu’à la signature.",
+            "Onboarding : coordonner avec les équipes techniques et opérationnelles la mise en service du compte client (interfaçage, paramétrage).",
+            "Fidélisation & upselling : suivre le volume d’expéditions des clients existants et identifier les opportunités de cross-selling.",
+            "Veille concurrentielle : analyser le marché de la logistique express et remonter les besoins émergents des vendeurs en ligne.",
+          ],
+          profile: [
+            "Formation Bac+3 ou Bac+5 en Commerce, Vente, Marketing ou Management.",
+            "2 ans d’expérience concluante en prospection commerciale B2B — vente de services, logistique ou SaaS e-commerce fortement valorisée.",
+            "Maîtrise des techniques de vente et de négociation, utilisation régulière d’un CRM (HubSpot, Salesforce…).",
+            "Chasseur(se) dans l’âme, orientation résultats, aisance relationnelle, autonomie et ténacité.",
+          ],
+        },
+      ],
+    },
+  ],
+};
+
 export const SPEAKERS = [
   {
     id: "hamza-fatnassi",
     name: "Hamza Fatnassi",
-    role: "Business Expert & Team Leader",
-    company: "Banking Solutions · Risk & Scoring",
-    bio: "Business Expert & Team Leader in banking solutions, credit scoring, AML/CFT, IFRS9, AMOA and acceptance testing.",
+    role: "Agro-Industry & Sustainability Expert",
+    company: "Strategic Management · Climate Change · Green Tech",
+    bio: "Expert in agro-industry, sustainable development, strategic management, climate change and green tech.",
     panel: "Panel 1",
     panelId: "01",
     panelTitle: "Growing Without Losing Your Way: The Keys to Sustainable SME Growth",
     image: "/img/speakers/hamza_fatnassi.jpg",
-    linkedin: "https://www.linkedin.com/in/hamza-fatnassi-b284496b/",
+    linkedin: "https://www.linkedin.com/in/hamza-fatnassi-ab7a7195/",
     accent: "#1DE123",
     initials: "HF",
   },

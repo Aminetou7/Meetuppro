@@ -185,7 +185,7 @@ export default function Agenda() {
               </div>
               <div className={`${styles.dCell} ${styles.dParallel} ${styles.dSpeed}`} style={cell("5 / 6", "8 / 12")}>
                 <h4>SPEED RECRUITING</h4>
-                <span className={styles.dSub}>01:00 &ndash; 04:30</span>
+                <span className={styles.dSub}>01:00 &ndash; 04:00</span>
               </div>
 
               {/* 13:40 – 14:40 · Panel 3 */}

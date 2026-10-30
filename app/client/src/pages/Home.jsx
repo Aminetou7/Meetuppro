@@ -5,6 +5,7 @@ import About from "../components/About/About.jsx";
 import Experience from "../components/Experience/Experience.jsx";
 import Program from "../components/Program/Program.jsx";
 import Agenda from "../components/Agenda/Agenda.jsx";
+import SpeedRecruiting from "../components/SpeedRecruiting/SpeedRecruiting.jsx";
 import Speakers from "../components/Speakers/Speakers.jsx";
 import Venue from "../components/Venue/Venue.jsx";
 import Partners from "../components/Partners/Partners.jsx";
@@ -21,6 +22,7 @@ export default function Home({ onOpenRegister, onOpenPartner }) {
       <Experience />
       <Program />
       <Agenda />
+      <SpeedRecruiting />
       <Speakers />
       <Venue />
       <Partners onOpenPartner={onOpenPartner} />

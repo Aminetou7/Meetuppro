@@ -22,31 +22,19 @@
   pointer-events: none;
 }
 
-.headerInner { display: flex; align-items: center; justify-content: space-between; gap: 24px; width: min(1560px, 95%); margin: 0 auto; }
+.headerInner { display: flex; align-items: center; justify-content: space-between; gap: 24px; width: min(1780px, 95%); margin: 0 auto; }
 
 .brand { flex-shrink: 0; display: inline-flex; transition: filter 0.25s, transform 0.25s; }
 .brand:hover { filter: drop-shadow(0 6px 22px rgba(26, 219, 168, 0.45)); transform: translateY(-1px); }
 .brandLogo { width: 280px; max-width: 100%; height: auto; transition: width 0.3s; }
 .scrolled .brandLogo { width: 220px; }
-@media (max-width: 1600px) {
-  .brandLogo { width: 240px; }
-  .scrolled .brandLogo { width: 200px; }
-  .mainNav a { padding: 9px 10px; }
-}
-@media (max-width: 1400px) {
-  .partnerBtn { display: none; }
-}
-@media (max-width: 1200px) {
-  .brandLogo { width: 210px; }
-  .scrolled .brandLogo { width: 180px; }
-}
 
 .mainNav ul { display: flex; align-items: center; gap: 6px; list-style: none; }
 .mainNav li { display: flex; align-items: center; }
 .mainNav a {
   display: inline-flex; align-items: center;
   color: #fff; text-decoration: none; font-size: 15px; font-weight: 600;
-  padding: 8px 16px; border-radius: 999px; position: relative; white-space: nowrap;
+  padding: 8px 14px; border-radius: 999px; position: relative; white-space: nowrap;
   transition: color 0.2s, background-color 0.2s;
 }
 .mainNav a:hover { color: var(--g2); background: rgba(255, 255, 255, 0.05); }
@@ -57,7 +45,7 @@
 .navDropTrigger {
   display: inline-flex; align-items: center; gap: 6px;
   color: #fff; background: none; border: none; font: inherit;
-  font-size: 15px; font-weight: 600; padding: 8px 16px; border-radius: 999px;
+  font-size: 15px; font-weight: 600; padding: 8px 14px; border-radius: 999px;
   cursor: pointer; white-space: nowrap; transition: color 0.2s, background-color 0.2s;
 }
 .navDropTrigger:hover { color: var(--g2); background: rgba(255, 255, 255, 0.05); }
@@ -66,6 +54,12 @@
 .navDrop.open .navDropTrigger { color: var(--g2); background: rgba(26, 219, 168, 0.12); }
 .navDrop.open .navDropTrigger svg { transform: rotate(180deg); }
 
+@media (max-width: 1780px) {
+  .brandLogo { width: 240px; }
+  .scrolled .brandLogo { width: 200px; }
+  .mainNav > ul > li > a,
+  .navDropTrigger { padding: 9px 10px; }
+}
 .navDropMenu {
   position: absolute; top: calc(100% + 10px); left: 0; min-width: 200px;
   background: #080c14; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 14px;
@@ -77,8 +71,8 @@
 .navDrop.open .navDropMenu { opacity: 1; visibility: visible; transform: none; pointer-events: auto; }
 .navDropMenu a {
   display: flex; align-items: center;
-  padding: 10px 14px; border-radius: 10px; color: #fff;
-  text-decoration: none; font-size: 15px; font-weight: 600; white-space: nowrap;
+  padding: 10px 14px; border-radius: 10px;
+  color: #fff; text-decoration: none; font-size: 15px; font-weight: 600; white-space: nowrap;
   background: none; transition: background-color 0.2s, color 0.2s;
 }
 .navDropMenu a:hover { background: rgba(26, 219, 168, 0.1); color: var(--g2); }
@@ -102,11 +96,17 @@
 .burgerOpen span:nth-child(2) { opacity: 0; }
 .burgerOpen span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
+@media (max-width: 1560px) {
+  .partnerBtn { display: none; }
+}
+@media (max-width: 1200px) {
+  .brandLogo { width: 210px; }
+  .scrolled .brandLogo { width: 180px; }
+}
 @media (max-width: 1024px) {
   .mainNav { display: none; }
   .burger { display: flex; }
 }
-
 @media (max-width: 720px) {
   .headerActions .headerBtn { display: none; }
 }
