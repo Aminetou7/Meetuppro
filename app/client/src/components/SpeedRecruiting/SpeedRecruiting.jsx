@@ -8,12 +8,12 @@ const cx = (...c) => c.filter(Boolean).join(" ");
 
 const applyLink = (email, subject) =>
   `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(
-    "Bonjour,\n\nJe souhaite candidater à ce poste rencontré lors de MeetUp Pro 2026.\n\nCV et lettre de motivation en pièce jointe.\n\nCordialement,"
+    "Hello,\n\nI would like to apply for this role I came across at MeetUp Pro 2026.\n\nMy CV and cover letter are attached.\n\nKind regards,"
   )}`;
 
 const RoleCard = ({ role, email, accent }) => {
   const [open, setOpen] = useState(false);
-  const subject = `Candidature – ${role.title}`;
+  const subject = `Application – ${role.title}`;
 
   return (
     <article className={styles.role} style={{ "--accent": accent }}>
@@ -39,13 +39,13 @@ const RoleCard = ({ role, email, accent }) => {
       {open && (
         <div className={styles.detail}>
           <div className={styles.block}>
-            <h5>Missions principales</h5>
+            <h5>Key missions</h5>
             <ul>
               {role.missions.map((m) => <li key={m}>{m}</li>)}
             </ul>
           </div>
           <div className={styles.block}>
-            <h5>Profil recherché</h5>
+            <h5>Profile we are looking for</h5>
             <ul>
               {role.profile.map((p) => <li key={p}>{p}</li>)}
             </ul>
