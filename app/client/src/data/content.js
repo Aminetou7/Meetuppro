@@ -369,9 +369,9 @@ export const SPEED_RECRUITING = {
     {
       id: "droppex",
       name: "Droppex",
-      logo: "/img/partners/dropex.png",
+      logo: "/img/partners/droppex.png",
       sector: "Transport & Logistics",
-      accent: "#0FCDF3",
+      accent: "#FF6611",
       hiringNote: "Interviews held during MeetUp Pro 2026",
       email: "recrutement@droppex.com",
       applyNote:

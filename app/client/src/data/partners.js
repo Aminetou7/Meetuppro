@@ -5,7 +5,7 @@ export const PARTNERS = [
   { src: "apii.png", alt: "APII — Agency for the Promotion of Industry and Innovation" },
   { src: "aneti.png", alt: "ANETI" },
   { src: "gfi-university.png", alt: "GFI University" },
-  { src: "dropex.png", alt: "Dropex — Smart Delivery" },
+  { src: "droppex.png", alt: "Droppex — Smart Delivery" },
   { src: "jobbydone.png", alt: "Jobbydone" },
   { src: "leoni.png", alt: "LEONI" },
   { src: "oxilog.png", alt: "Oxilog Digital" },
